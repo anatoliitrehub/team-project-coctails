@@ -1,4 +1,11 @@
-// import { Notify } from 'notiflix/build/notiflix-notify-aio';
-// import SimpleLightbox from 'simplelightbox';
-// import 'simplelightbox/dist/simple-lightbox.min.css';
+'use strict';
+import { header } from './header';
+import { hero } from './hero';
+import { favorite } from './favorite';
+import { favoriteCocktails } from './favoriteCocktails';
+import { favoriteIngredients } from './favoriteIngredients';
+import { modalCocktails } from './modalCocktails';
+import { modalIngredients } from './modalIngredients';
+
+
 
