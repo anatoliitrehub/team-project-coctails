@@ -2,10 +2,10 @@
 import { header } from './header';
 import { hero } from './hero';
 import { favorite } from './favorite';
-import { favoriteCocktails } from './favoriteCocktails';
-import { favoriteIngredients } from './favoriteIngredients';
-import { modalCocktails } from './modalCocktails';
-import { modalIngredients } from './modalIngredients';
+import { favoritecocktails } from './favoritecocktails';
+import { favoriteingredients } from './favoriteingredients';
+import { modalcocktails } from './modalcocktails';
+import { modalingredients } from './modalingredients';
 
 
 
