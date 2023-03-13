@@ -1,0 +1,126 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $backdrop;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal_ingred {
+  width: 100%;
+  max-width: 715px;
+  background: $basic-white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  //   @include desktop {
+  //     max-width: none;
+  //     width: 528px;
+  //     height: 581px;
+  //   }
+}
+
+.modal-ingred_close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  background: $black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.border {
+  height: 30px;
+  padding-bottom: 40px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #fd5103;
+}
+
+.ingred_name {
+  font-family: 'Roboto';
+  font-weight: 900;
+  font-size: 32px;
+  line-height: 38px;
+  color: #202025;
+  margin-top: 40px;
+  margin-left: 28px;
+}
+
+.ingred_type {
+  display: block;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  text-transform: uppercase;
+  color: #202025;
+  margin-top: 28px;
+  margin-left: 28px;
+}
+
+.ingred_info {
+  font-size: 16px;
+  line-height: 1.75;
+  color: #5f6775;
+  margin: 28px;
+}
+
+.ingred_bold {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.75;
+  color: #000000;
+}
+
+.ingred__item {
+  margin-left: 28px;
+  font-size: 16px;
+  line-height: 1.62;
+  color: #5f6775;
+
+  &::before {
+    content: '✶ ';
+    background-repeat: no-repeat;
+    color: #202025;
+  }
+}
+
+.favorite_btn {
+  display: block;
+  margin-left: auto;
+  margin-right: 28px;
+  margin-bottom: 28px;
+  margin-top: 40px;
+  width: 185px;
+  height: 48px;
+  font-family: 'Roboto';
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  background-color: #fd5103;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: #fe7031;
+  }
+}
