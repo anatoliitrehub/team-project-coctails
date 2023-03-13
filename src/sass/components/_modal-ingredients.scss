@@ -55,7 +55,7 @@
     padding-bottom: 40px;
     border-bottom-width: 1px;
     border-bottom-style: solid;
-    border-bottom-color: #fd5103;
+    border-bottom-color: $accent-color;
   }
   @include desktop {
     display: block;
@@ -63,7 +63,7 @@
     padding-bottom: 40px;
     border-bottom-width: 1px;
     border-bottom-style: solid;
-    border-bottom-color: #fd5103;
+    border-bottom-color: $accent-color;
   }
 }
 
@@ -72,7 +72,7 @@
   font-weight: 900;
   font-size: 32px;
   line-height: 38px;
-  color: #202025;
+  color: $black;
 
   margin-top: 40px;
   margin-left: 20px;
@@ -93,7 +93,7 @@
   font-size: 16px;
   line-height: 24px;
   text-transform: uppercase;
-  color: #202025;
+  color: $black;
 
   margin-top: 20px;
   margin-left: 20px;
@@ -111,7 +111,7 @@
 .ingred_info {
   font-size: 16px;
   line-height: 1.75;
-  color: #5f6775;
+  color: $grey;
 
   margin: 20px;
   margin-bottom: 28px;
@@ -128,7 +128,7 @@
   font-weight: 600;
   font-size: 16px;
   line-height: 1.75;
-  color: #000000;
+  color: $black-modal;
 }
 
 .ingred_list {
@@ -145,12 +145,12 @@
 .ingred__item {
   font-size: 16px;
   line-height: 1.62;
-  color: #5f6775;
+  color: $grey;
 
   &::before {
     content: '✶ ';
     background-repeat: no-repeat;
-    color: #202025;
+    color: $black-modal;
   }
 }
 
@@ -179,14 +179,14 @@
   font-size: 20px;
   line-height: 1.2;
   letter-spacing: 0.02em;
-  color: #ffffff;
-  background-color: #fd5103;
+  color: $basic-white-text;
+  background-color: $accent-color;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 
   &:hover,
   &:focus {
-    background-color: #fe7031;
+    background-color: $accent-color-hover;
   }
 }
