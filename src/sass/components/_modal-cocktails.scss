@@ -20,7 +20,7 @@
   @include desktop {
     width: 822px;
   }
-  background-color: $basic-white;
+  background-color: $white-modal-text;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -62,33 +62,22 @@
 }
 .cocktail-title {
   font-family: 'Roboto';
-  font-weight: 900;
-  font-size: 32px;
-  line-height: calc(38 / 32);
+  @include font(900, 32px, calc(38 / 32));
   color: #000917;
   padding-top: 40px;
   margin-bottom: 28px;
 }
 .ingridients-title {
-  font-family: 'Poppins';
-  font-weight: 600;
-  font-size: 16px;
-  line-height: calc(24 / 16);
+  @include font(600, 16px, calc(24 / 16));
   margin-bottom: 8px;
 }
 .ingredients-descr {
-  font-family: 'Poppins';
-  font-weight: 300;
-  font-size: 14px;
-  line-height: calc(21 / 14);
+  @include font(300, 14px, calc(21 / 14));
   color: #202025;
   margin-bottom: 8px;
 }
 .ingredients-link {
-  font-family: 'Poppins';
-  font-weight: 400;
-  font-size: 16px;
-  line-height: calc(26 / 16);
+  @include font(400, 16px, calc(26 / 16));
   text-decoration: none;
   color: $grey;
   &:hover {
@@ -114,26 +103,18 @@
   padding-bottom: 28px;
 }
 .instraction-title {
-  font-family: 'Poppins';
-  font-weight: 600;
-  font-size: 16px;
-  line-height: calc(26 / 16);
+  @include font(600, 16px, calc(26 / 16));
   color: #000917;
   margin-bottom: 24px;
 }
 .instraction-descr {
-  font-family: 'Poppins';
-  font-weight: 400;
-  font-size: 16px;
-  line-height: calc(28 / 16);
+  @include font(400, 16px, calc(28 / 16));
   color: $grey;
   margin-bottom: 40px;
 }
 .modal-button {
   font-family: 'Roboto';
-  font-weight: 400;
-  font-size: 20px;
-  line-height: calc(24 / 20);
+  @include font(400, 20px, calc(24 / 20));
   color: $basic-white-text;
 
   background-color: $accent-color-hover;
@@ -141,6 +122,12 @@
   border-radius: 4px;
   border: none;
   cursor: pointer;
+  margin-left: auto;
+  &:hover {
+    background-color: $basic-white;
+    color: $accent-color-hover;
+    border: 1px solid $accent-color-hover;
+  }
 }
 .is-hidden {
   opacity: 0;
