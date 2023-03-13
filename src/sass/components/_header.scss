@@ -80,7 +80,7 @@
 // -----dropdown-----//
 
 .dropdown {
-  display: block;
+  display: inline-block;
   //   display: flex;
   position: relative;
   //   flex-direction: column;
@@ -92,9 +92,12 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  top: 32px;
+  //   top: 32px;
   width: 210px;
   overflow: auto;
+  padding-top: 10px;
+}
+.dropdown-content__wrapper {
   border: 1px solid #fd5103;
   border-radius: 8px;
 }
