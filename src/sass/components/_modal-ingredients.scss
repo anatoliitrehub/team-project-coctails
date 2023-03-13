@@ -10,18 +10,19 @@
 
 .modal_ingred {
   width: 100%;
-  max-width: 715px;
+  max-width: 333px;
   background: $basic-white;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  //   @include desktop {
-  //     max-width: none;
-  //     width: 528px;
-  //     height: 581px;
-  //   }
+  @include tablet {
+    max-width: 715px;
+  }
+  @include desktop {
+    max-width: 715px;
+  }
 }
 
 .modal-ingred_close {
@@ -30,11 +31,12 @@
   right: 12px;
   width: 32px;
   height: 32px;
-  background: $black;
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  border: none;
 
   transition-property: fill;
   transition-duration: 250ms;
@@ -46,11 +48,23 @@
 }
 
 .border {
-  height: 30px;
-  padding-bottom: 40px;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-bottom-color: #fd5103;
+  display: none;
+  @include tablet {
+    display: block;
+    height: 30px;
+    padding-bottom: 40px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #fd5103;
+  }
+  @include desktop {
+    display: block;
+    height: 30px;
+    padding-bottom: 40px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #fd5103;
+  }
 }
 
 .ingred_name {
@@ -59,8 +73,18 @@
   font-size: 32px;
   line-height: 38px;
   color: #202025;
+
   margin-top: 40px;
-  margin-left: 28px;
+  margin-left: 20px;
+
+  @include tablet {
+    margin-top: 40px;
+    margin-left: 28px;
+  }
+  @include desktop {
+    margin-top: 40px;
+    margin-left: 28px;
+  }
 }
 
 .ingred_type {
@@ -70,15 +94,34 @@
   line-height: 24px;
   text-transform: uppercase;
   color: #202025;
-  margin-top: 28px;
-  margin-left: 28px;
+
+  margin-top: 20px;
+  margin-left: 20px;
+
+  @include tablet {
+    margin-top: 28px;
+    margin-left: 28px;
+  }
+  @include desktop {
+    margin-top: 28px;
+    margin-left: 28px;
+  }
 }
 
 .ingred_info {
   font-size: 16px;
   line-height: 1.75;
   color: #5f6775;
-  margin: 28px;
+
+  margin: 20px;
+  margin-bottom: 28px;
+
+  @include tablet {
+    margin: 28px;
+  }
+  @include desktop {
+    margin: 28px;
+  }
 }
 
 .ingred_bold {
@@ -88,8 +131,18 @@
   color: #000000;
 }
 
+.ingred_list {
+  margin-left: 16px;
+
+  @include tablet {
+    margin-left: 28px;
+  }
+  @include desktop {
+    margin-left: 28px;
+  }
+}
+
 .ingred__item {
-  margin-left: 28px;
   font-size: 16px;
   line-height: 1.62;
   color: #5f6775;
@@ -103,10 +156,23 @@
 
 .favorite_btn {
   display: block;
-  margin-left: auto;
-  margin-right: 28px;
-  margin-bottom: 28px;
-  margin-top: 40px;
+  margin-left: 20px;
+  margin-right: auto;
+  margin-bottom: 40px;
+  margin-top: 32px;
+
+  @include tablet {
+    margin-left: auto;
+    margin-right: 28px;
+    margin-bottom: 28px;
+    margin-top: 40px;
+  }
+  @include desktop {
+    margin-left: auto;
+    margin-right: 28px;
+    margin-bottom: 28px;
+    margin-top: 40px;
+  }
   width: 185px;
   height: 48px;
   font-family: 'Roboto';
