@@ -267,3 +267,11 @@ input:checked + .header__slider:before {
 .header__slider.header__round:before {
   border-radius: 50%;
 }
+// mobileMenu
+.header__mobile-menu {
+  display: none;
+}
+.header__mobile-menu-is-open {
+  overflow: hidden;
+  position: absolute;
+}
