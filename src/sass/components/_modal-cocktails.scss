@@ -1,15 +1,15 @@
-.backdrop {
+.cocktails-backdrop {
   position: fixed;
   top: 0;
 
   width: 100%;
   height: 100%;
   background-color: #cccccc;
-  opacity: 1;
+  // opacity: 1; Це перекриває іс хідден і все ламає, тому я це закоментувала (Діана)
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
     visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.modal {
+.modal-cocktails {
   width: 320px;
   @include mobile {
     width: 450px;
@@ -35,8 +35,9 @@
     transform: translate(-50%, -50%) scaleX(0);
   }
 }
-.modal-close {
+.modal-cocktails__close {
   position: absolute;
+  padding:0;
   top: 12px;
   right: 12px;
   width: 32px;
@@ -54,29 +55,30 @@
     fill: $accent-color-hover;
   }
 }
-.cocktail-photo {
+
+.cocktail__photo {
   height: 320px;
   border-radius: 4px;
   display: block;
   margin-right: 32px;
 }
-.cocktail-title {
+.cocktail__title {
   font-family: 'Roboto';
   @include font(900, 32px, calc(38 / 32));
   color: #000917;
   padding-top: 40px;
   margin-bottom: 28px;
 }
-.ingridients-title {
+.ingridients__title {
   @include font(600, 16px, calc(24 / 16));
   margin-bottom: 8px;
 }
-.ingredients-descr {
+.ingredients__descr {
   @include font(300, 14px, calc(21 / 14));
   color: #202025;
   margin-bottom: 8px;
 }
-.ingredients-link {
+.ingredients__link {
   @include font(400, 16px, calc(26 / 16));
   text-decoration: none;
   color: $grey;
@@ -86,11 +88,11 @@
   &:focus {
     color: $accent-color-hover;
   }
-  &:hover .ingred-symbol {
+  &:hover .ingred__symbol {
     color: $accent-color-hover;
   }
 }
-.ingred-symbol {
+.ingred__symbol {
   color: #000917;
 }
 .cocktail-instraction {
@@ -102,17 +104,17 @@
   padding-right: 28px;
   padding-bottom: 28px;
 }
-.instraction-title {
+.instraction__title {
   @include font(600, 16px, calc(26 / 16));
   color: #000917;
   margin-bottom: 24px;
 }
-.instraction-descr {
+.instraction__descr {
   @include font(400, 16px, calc(28 / 16));
   color: $grey;
   margin-bottom: 40px;
 }
-.modal-button {
+.modal-cocktails__add {
   font-family: 'Roboto';
   @include font(400, 20px, calc(24 / 20));
   color: $basic-white-text;
@@ -128,9 +130,4 @@
     color: $accent-color-hover;
     border: 1px solid $accent-color-hover;
   }
-}
-.is-hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
 }
