@@ -1,0 +1,42 @@
+<section class="hero">
+  <div class="container">
+    <div class="hero__wrapper">
+      <h1 class="hero__title">A party without cocktails is not like a party</h1>
+      <picture class="hero__picture">
+        <source
+          srcset="./images/hero-1x-desk.png 1x, ./images/hero-2x-desk.png 2x"
+          media="(min-width: 1280px)"
+        />
+        <source
+          srcset="./images/hero-1x-tabl.png 1x, ./images/hero-2x-tabl.png 2x"
+          media="(min-width: 768px)"
+        />
+        <source
+          srcset="./images/hero-1x-mob.png 1x, ./images/hero-2x-mob.png 2x"
+          media="(max-width: 767px)"
+        />
+        <img
+          src="./images/hero-1x-desk.png"
+          alt="a front view fresh fruit cocktail with fresh fruit"
+          class="hero__image"
+        />
+      </picture>
+
+      <div class="hero__contain">
+        <p class="contain__text">Search your favorite cocktail by ABC</p>
+        <table class="contain__table">
+          <tr>
+            <td class="table__item table__item--activ">A</td>
+            <td class="table__item">B</td>
+            <td class="table__item">C</td>
+          </tr>
+        </table>
+        <select name="select" class="contain__select">
+          <option value="a" selected>A</option>
+          <option value="b">B</option>
+          <option value="c">C</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</section>
