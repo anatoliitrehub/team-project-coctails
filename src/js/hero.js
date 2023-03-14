@@ -24,9 +24,10 @@ sum += `<td class="table__item" data-value="${charsItems[j]}">${charsItems[j]}</
 if (j==12 || j==25 || j==38) sum +=`</tr>`;
 
 }
-tableTd.innerHTML = sum;
-
-tableTd.addEventListener('click',(ev)=>console.log("letter is: ",ev.target.dataset['value']))
+if (tableTd) {
+    tableTd.innerHTML = sum;
+    tableTd.addEventListener('click',(ev)=>console.log("letter is: ",ev.target.dataset['value']));
+}
 
 }
 
