@@ -1,4 +1,4 @@
-.backdrop {
+.ingred__backdrop {
   position: fixed;
   top: 0;
   width: 100%;
@@ -8,7 +8,7 @@
     visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.modal_ingred {
+.modal__ingred {
   width: 100%;
   max-width: 333px;
   background: $basic-white;
@@ -25,7 +25,7 @@
   }
 }
 
-.modal-ingred_close {
+.modal__ingred-close {
   position: absolute;
   top: 12px;
   right: 12px;
@@ -43,31 +43,26 @@
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.backdrop.is-hidden .modal {
+.ingred__backdrop.is-hidden .modal {
   transform: translate(-50%, -50%) scale(0);
 }
 
-.border {
+.ingred__border {
   display: none;
+  height: 30px;
+  padding-bottom: 40px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: $accent-color;
   @include tablet {
     display: block;
-    height: 30px;
-    padding-bottom: 40px;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-    border-bottom-color: $accent-color;
   }
   @include desktop {
     display: block;
-    height: 30px;
-    padding-bottom: 40px;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-    border-bottom-color: $accent-color;
   }
 }
 
-.ingred_name {
+.ingred__name {
   font-family: 'Roboto';
   font-weight: 900;
   font-size: 32px;
@@ -78,17 +73,14 @@
   margin-left: 20px;
 
   @include tablet {
-    margin-top: 40px;
     margin-left: 28px;
   }
   @include desktop {
-    margin-top: 40px;
     margin-left: 28px;
   }
 }
 
-.ingred_type {
-  display: block;
+.ingred__type {
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;
@@ -108,7 +100,7 @@
   }
 }
 
-.ingred_info {
+.ingred__info {
   font-size: 16px;
   line-height: 1.75;
   color: $grey;
@@ -124,14 +116,14 @@
   }
 }
 
-.ingred_bold {
+.ingred__info-bold {
   font-weight: 600;
   font-size: 16px;
   line-height: 1.75;
   color: $black-modal;
 }
 
-.ingred_list {
+.ingred__list {
   margin-left: 16px;
 
   @include tablet {
@@ -154,12 +146,23 @@
   }
 }
 
-.favorite_btn {
+.favorite__btn {
   display: block;
   margin-left: 20px;
   margin-right: auto;
   margin-bottom: 40px;
   margin-top: 32px;
+  width: 185px;
+  height: 48px;
+  font-family: 'Roboto';
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: $basic-white-text;
+  background-color: $accent-color;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 
   @include tablet {
     margin-left: auto;
@@ -173,17 +176,6 @@
     margin-bottom: 28px;
     margin-top: 40px;
   }
-  width: 185px;
-  height: 48px;
-  font-family: 'Roboto';
-  font-size: 20px;
-  line-height: 1.2;
-  letter-spacing: 0.02em;
-  color: $basic-white-text;
-  background-color: $accent-color;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
 
   &:hover,
   &:focus {
