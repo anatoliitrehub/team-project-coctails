@@ -29,6 +29,6 @@ Promise.all(arr).then((res) => {
 });
 
 
-fetchCoctails.fetchCoctailsByFirstName('bellini').then(res => console.log(res));
+// fetchCoctails.fetchCoctailsByFirstName('bellini').then(res => console.log(res));
 
-fetchCoctails.fetchCoctailsByFirstLetter('a').then(res => console.log(res));
+// fetchCoctails.fetchCoctailsByFirstLetter('a').then(res => console.log(res));
