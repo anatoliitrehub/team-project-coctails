@@ -6,11 +6,11 @@
 
     <ul class="nav__list list">
       <li class="nav-list__item">
-        <a href="./index.html" class="link">Home</a>
+        <a href="./index.html" class="header__reset-link">Home</a>
       </li>
       <li class="nav-list__item">
         <div class="dropdown">
-          <a href="#" class="link">Favorite</a>
+          <a href="#" class="header__reset-link">Favorite</a>
           <div class="dropdown-content">
             <div class="dropdown-content__wrapper">
               <a href="#">Favorite cocktails</a>
@@ -24,7 +24,7 @@
   <div class="header__form--wrapper">
     <form action="" class="header__form--search">
       <button type="submit" class="header__form--button">
-        <svg
+        <!-- <svg
           width="24"
           height="25"
           viewBox="0 0 24 25"
@@ -35,29 +35,29 @@
             d="M10 18.5C11.775 18.4996 13.4988 17.9054 14.897 16.812L19.293 21.208L20.707 19.794L16.311 15.398C17.405 13.9997 17.9996 12.2754 18 10.5C18 6.089 14.411 2.5 10 2.5C5.589 2.5 2 6.089 2 10.5C2 14.911 5.589 18.5 10 18.5ZM10 4.5C13.309 4.5 16 7.191 16 10.5C16 13.809 13.309 16.5 10 16.5C6.691 16.5 4 13.809 4 10.5C4 7.191 6.691 4.5 10 4.5Z"
             fill="#FD5103"
           />
-        </svg>
-        <!-- <svg class="form-button__icon">
-          <use href="./images/icons.svg#icon-search-icon"></use>
         </svg> -->
+        <svg class="header__form-button-icon">
+          <use href="./images/icons.svg#icon-search-icon"></use>
+        </svg>
       </button>
       <input type="text" class="header__form-input" placeholder="Search" />
     </form>
   </div>
-  <div class="theme-wrapper">
-    <ul class="list theme-list">
-      <li class="current">Ligth</li>
+  <div class="theme__wrapper">
+    <ul class="list theme__list">
+      <li class="header__current">Ligth</li>
       <li>
-        <label class="switch">
+        <label class="header__switch">
           <input type="checkbox" />
-          <span class="slider round"></span>
+          <span class="header__slider header__round"></span>
         </label>
       </li>
       <li>Dark</li>
     </ul>
   </div>
-  <div class="burger-wrapper">
-    <button class="burger-menu" type="button">
-      <svg class="burger-menu__icon">
+  <div class="header__burger-wrapper">
+    <button class="header__burger-menu" type="button">
+      <svg class="header__burger-menu__icon">
         <use href="./images/icons.svg#menu"></use>
       </svg>
     </button>
