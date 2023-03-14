@@ -1,0 +1,185 @@
+.hero{
+    @include mobile{
+        margin-top: 60px;
+    }
+    
+    @include tablet{
+        margin-top: 77px;
+    }
+
+    @include desktop{
+        margin-top: 97px;
+    }
+}
+
+
+.hero__wrapper{
+    @include mobile{
+        display: flex; 
+        flex-wrap: wrap;
+    }
+
+    @include tablet{
+        display: flex;
+        flex-wrap:wrap;
+        position: relative;
+    }
+
+    @include desktop{
+        display: flex;
+        flex-wrap:wrap;
+        position: relative;
+    }
+}
+
+.hero__title{
+    @include mobile{
+       
+        max-width: 300px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 22px;
+        font-weight: 600;
+        line-height: 1.9;
+        color: $accent-color-hover; 
+    }
+    
+    @include tablet{
+        margin-top: 23px;
+        margin-right: 32px;
+        width: 336px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 26px;
+        font-weight: 600;
+        line-height: 2;
+        color: $accent-color-hover; 
+    }
+    
+    @include desktop{
+            
+       margin-right: 59px;
+       width: 688px;
+       font-family: 'Poppins', sans-serif;
+       font-size: 52px;
+       font-weight: 600;
+       line-height: 1.53;
+       color: $accent-color-hover;       
+    }
+}
+
+.hero__image{
+    @include mobile{
+        margin-top: 60px;
+        margin-bottom: 60px;
+    }
+    
+    @include tablet{
+       width: 336px;
+    }
+    
+    @include desktop{
+        width:501px;      
+    }
+}
+
+.hero__contain{
+    @include mobile{
+         
+    }
+    
+    @include tablet{
+        position: absolute;
+        top: 147px;
+    }
+    
+    @include desktop{
+        position: absolute;
+        top: 200px; 
+    }
+}
+
+.contain__text{
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 2;
+    letter-spacing: 0.02em;
+    color: $black; 
+
+    @include mobile{
+        max-width:280px; 
+        margin-bottom: 20px;
+    }
+    
+    @include tablet{
+       margin-bottom: 40px;
+       width:324px; 
+    }
+    
+    @include desktop{
+        margin-bottom: 40px;
+        width:607px; 
+        font-size: 18px;
+        line-height: 1.56;
+    }
+}
+
+.contain__table{
+    font-family: 'Poppins', sans-serif;
+
+    @include mobile{
+        display: none;
+    }
+    
+    @include tablet{
+       
+    }
+    
+    @include desktop{
+            // margin-top: 40px;
+    //   width:607px; 
+      
+    }
+}
+
+.table__item{
+    @include mobile{
+        
+    }
+    
+    @include tablet{
+       
+    }
+    
+    @include desktop{
+      width:40px;
+      height: 40px;
+    //   font-family: 'Poppins', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.5;
+      
+      color: $grey; 
+    }
+}
+
+.table__item--activ{
+    -webkit-text-stroke: 1px $grey; /* width and color */
+    text-shadow: 0px 4px 4px rgba(95, 103, 117, 0.25);
+    -webkit-text-fill-color: $accent-color-hover; //or color
+}
+
+.contain__select{
+    @include mobile{
+        // margin-top: 20px;
+    }
+    
+    @include tablet{
+       display: none;
+    }
+    
+    @include desktop{
+        display: none;
+      
+      
+    } 
+}
