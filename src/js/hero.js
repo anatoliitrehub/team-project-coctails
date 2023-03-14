@@ -6,7 +6,7 @@ const hero = () =>{
     charsItems.push(String.fromCharCode(i))
 }
 
-for (i=49; i<58; i++){
+for (let i=49; i<58; i++){
     charsItems.push(String.fromCharCode(i))
 }
 
@@ -14,6 +14,7 @@ charsItems.push(String.fromCharCode(48))
 // console.log(charsItems)
 
 let sum = '';
+
 for (let j=0;j<charsItems.length;j++){
 if (j==0) sum +=`<tr>`;
 if (j==26) {
