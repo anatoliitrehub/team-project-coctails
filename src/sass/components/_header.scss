@@ -5,10 +5,9 @@
   color: #fd5103;
 }
 
-.header-wrapper {
+.header__wrapper {
   padding-top: 20px;
 
-  background-color: #ffffff;
   display: flex;
 
   align-items: center;
@@ -19,7 +18,7 @@
     align-items: center;
   }
 }
-.nav {
+.header__nav {
   //   display: flex;
 
   //   align-items: center;
@@ -63,7 +62,7 @@
   width: 30px;
   height: 16px;
 }
-.nav-list {
+.nav__list {
   display: none;
   @include desktop {
     display: flex;
@@ -83,11 +82,11 @@
     color: #202025;
   }
 }
-.nav-list .link:link,
-.nav-list .link:visited {
-  color: #202025;
+.nav__list .link:link,
+.nav__list .link:visited {
+  color: $black;
 }
-.form-wrapper {
+.header__form--wrapper {
   display: none;
   @include tablet {
     display: block;
@@ -99,7 +98,7 @@
   }
 }
 
-.form-search {
+.header__form--search {
   border: 1px solid #fd5103;
   border-radius: 4px;
   width: 288px;
@@ -108,18 +107,18 @@
   display: flex;
   align-items: center;
 }
-.form-button {
+.header__form--button {
   text-align: center;
   border: none;
   background-color: inherit;
   padding: 8px;
 }
-.form-button__icon {
-  width: 24px;
-  height: 24px;
-  fill: #fd5103;
-}
-.form-input {
+// .form-button__icon {
+//   width: 24px;
+//   height: 24px;
+//   fill: #fd5103;
+// }
+.header__form-input {
   outline: none;
   height: 40px;
   width: 248px;
@@ -129,7 +128,7 @@
   padding: 8px 8px 8px 8px;
 }
 
-.form-input::placeholder {
+.header__form-input::placeholder {
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;
