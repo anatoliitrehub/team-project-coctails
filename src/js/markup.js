@@ -22,7 +22,7 @@ export function galleryMarkUp(params) {
             >
               Add to
               <svg class="gallery__figcaption--icon">
-                <use href="./images/icons.svg#icon-heart"></use>
+                <use href="/icons.adfc4680.svg#icon-heart"></use>
               </svg>
             </button>
           </div>
