@@ -65,9 +65,7 @@
 
 .ingred__name {
   font-family: 'Roboto';
-  font-weight: 900;
-  font-size: 32px;
-  line-height: 38px;
+  @include font(900, 32px, calc(38 / 32));
   color: var(--black);
 
   margin-top: 40px;
@@ -82,10 +80,8 @@
 }
 
 .ingred__type {
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 24px;
   text-transform: uppercase;
+  @include font(600, 16px, calc(24 / 16));
   color: var(--black);
 
   margin-top: 20px;
@@ -102,9 +98,8 @@
 }
 
 .ingred__info {
-  font-size: 16px;
-  line-height: 1.75;
   color: var(--grey-theme);
+  @include font(400, 16px, 1.75);
 
   margin: 20px;
   margin-bottom: 28px;
@@ -118,10 +113,8 @@
 }
 
 .ingred__info-bold {
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 1.75;
   color: var(--black);
+  @include font(600, 16px, 1.75);
 }
 
 .ingred__list {
@@ -136,9 +129,8 @@
 }
 
 .ingred__item {
-  font-size: 16px;
-  line-height: 1.62;
   color: var(--grey-theme);
+  @include font(400, 16px, 1.62);
 
   &::before {
     content: '✶ ';
@@ -156,8 +148,7 @@
   width: 185px;
   height: 48px;
   font-family: 'Roboto';
-  font-size: 20px;
-  line-height: 1.2;
+  @include font(400, 20px, 1.2);
   letter-spacing: 0.02em;
   color: $basic-white-text;
   background-color: $accent-color;
