@@ -11,7 +11,7 @@
 .modal__ingred {
   width: 100%;
   max-width: 333px;
-  background: $basic-white;
+  background: var(--white-modal-text);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -67,7 +67,7 @@
   font-weight: 900;
   font-size: 32px;
   line-height: 38px;
-  color: $black;
+  color: var(--black);
 
   margin-top: 40px;
   margin-left: 20px;
@@ -85,7 +85,7 @@
   font-size: 16px;
   line-height: 24px;
   text-transform: uppercase;
-  color: $black;
+  color: var(--black);
 
   margin-top: 20px;
   margin-left: 20px;
@@ -103,7 +103,7 @@
 .ingred__info {
   font-size: 16px;
   line-height: 1.75;
-  color: $grey;
+  color: var(--grey-theme);
 
   margin: 20px;
   margin-bottom: 28px;
@@ -120,7 +120,7 @@
   font-weight: 600;
   font-size: 16px;
   line-height: 1.75;
-  color: $black-modal;
+  color: var(--black);
 }
 
 .ingred__list {
@@ -137,12 +137,12 @@
 .ingred__item {
   font-size: 16px;
   line-height: 1.62;
-  color: $grey;
+  color: var(--grey-theme);
 
   &::before {
     content: '✶ ';
     background-repeat: no-repeat;
-    color: $black-modal;
+    color: var(--black);
   }
 }
 
