@@ -7,7 +7,7 @@ export function galleryMarkUp(params) {
         <img
           class="container gallery__picture"
           src=${strDrinkThumb}
-          alt="coctail foto"
+          alt=${strDrink}
         />
         <div class="gallery__figcaption">
           <h3 class="gallery__figcaption--coctail">${strDrink}</h3>
@@ -17,11 +17,12 @@ export function galleryMarkUp(params) {
             </button>
             <button
               class="gallery__figcaption--storage"
-              data-add="localStorage"
+              data-favcoctail="add"
+              data-favcoctail="remove"
             >
               Add to
               <svg class="gallery__figcaption--icon">
-                <use href="./images/icons.svg#icon-heart"></use>
+                <use href="/icons.adfc4680.svg#icon-heart"></use>
               </svg>
             </button>
           </div>

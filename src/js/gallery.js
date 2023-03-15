@@ -21,14 +21,9 @@ for (let index = 0; index < 9; index++) {
   }
 }
 
-
 Promise.all(arr).then(result => {
-    console.log(result);
-
-    result.map(res => {
-        console.log(res);
-    //   const randomResCocktails = res.data.drinks;
-    galleryListEl.innerHTML = galleryMarkUp(randomResCocktails);
-  });
+  result.forEach(res => {
+    const drink = [res.data.drinks[0]];
+    galleryListEl.insertAdjacentHTML('beforeend', galleryMarkUp(drink));
+  })
 });
-
