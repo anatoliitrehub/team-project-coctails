@@ -33,8 +33,8 @@ Promise.all(arr).then(result => {
 
 
 
-fetchCocktails.fetchCocktailsByFirstLetter('j').then(res => {
-  console.log(res.data.drinks);
-  galleryListEl.innerHTML = galleryMarkUp(res.data.drinks);
-})
+// fetchCocktails.fetchCocktailsByFirstLetter('j').then(res => {
+//   console.log(res.data.drinks);
+//   galleryListEl.innerHTML = galleryMarkUp(res.data.drinks);
+// })
 
