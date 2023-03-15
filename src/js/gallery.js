@@ -21,7 +21,6 @@ for (let index = 0; index < 9; index++) {
   }
 }
 
-galleryListEl.innerHTML = '';
 Promise.all(arr).then(result => {
   result.forEach(res => {
     const drink = [res.data.drinks[0]];
