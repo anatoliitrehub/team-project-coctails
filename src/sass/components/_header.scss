@@ -82,14 +82,14 @@
 
     letter-spacing: 0.02em;
 
-    /* Black */
-
-    color: $black;
+    // ---------------theme--------
+    // color: $black;
   }
 }
 .nav__list .header__reset-link:link,
 .nav__list .header__reset-link:visited {
-  color: $black;
+  // ---------------theme--------
+  // color: $black;
 }
 
 // --------- search---------
@@ -179,7 +179,8 @@
 }
 .header__dropdown-content a {
   display: block;
-  color: black;
+  // ---------theme-------//
+  // color: $black;
   padding: 12px 0 12px 12px;
   text-decoration: none;
   font-family: 'Poppins';
@@ -211,7 +212,8 @@
     font-weight: 400;
     font-size: 18px;
     line-height: 24px;
-    color: $grey;
+    //------theme------//
+    // color: $grey;
   }
 }
 
@@ -294,15 +296,20 @@ input:checked + .header__slider:before {
 .mobile-mebu___wraper-up-section .logo {
   display: none;
   @include tablet {
+    position: absolute;
+    left: 20px;
+    top: 18px;
     display: block;
   }
 }
 .mobile-mebu___wraper-up-section {
+  height: 70px;
   margin-bottom: 50px;
   @include tablet {
-    display: flex;
-    align-items: end;
-    gap: 150px;
+    position: relative;
+    // display: flex;
+    // align-items: end;
+    // gap: 25%;
   }
 }
 
@@ -316,6 +323,11 @@ input:checked + .header__slider:before {
   font-size: 18px;
   line-height: 24px;
   color: $grey;
+  @include tablet {
+    position: absolute;
+    left: 45%;
+    top: 33px;
+  }
 }
 .header__mobile-menu-close {
   padding: 0;
@@ -357,7 +369,6 @@ input:checked + .header__slider:before {
 }
 .header__mobile-menu-nav__list .header__reset-link:link,
 .header__mobile-menu-nav__list .header__reset-link:visited {
-  // color: white;
   color: black;
 }
 .header__mobile-menu-nav-list__item {
@@ -373,7 +384,7 @@ input:checked + .header__slider:before {
 
   color: $black-modal;
   @include tablet {
-    margin-left: 306px;
+    margin-left: 45%;
   }
 }
 .header__mobile-menu-dropdown {
@@ -457,4 +468,49 @@ input:checked + .header__slider:before {
 .mobile-menu-dropdown__icon {
   width: 24px;
   height: 24px;
+}
+
+// test color
+
+.light {
+  background-color: white;
+  color: black;
+}
+.dark {
+  background-color: black;
+  color: white;
+}
+
+// theme style
+html.light .nav__list {
+  color: $black;
+}
+html.dark .nav__list {
+  color: $white-modal-text;
+}
+
+html.light .nav__list .header__reset-link:link,
+html.light .nav__list .header__reset-link:visited {
+  color: $black;
+}
+
+html.dark .nav__list .header__reset-link:link,
+html.dark .nav__list .header__reset-link:visited {
+  color: $white-modal-text;
+}
+html.light .header__dropdown-content a {
+  color: $black;
+}
+
+html.light .header__dropdown-content a:hover {
+  color: $white-modal-text;
+}
+html.dark .header__dropdown-content a {
+  color: $white-modal-text;
+}
+html.light .theme__list {
+  color: $grey;
+}
+html.dark .theme__list {
+  color: $white-modal-text;
 }
