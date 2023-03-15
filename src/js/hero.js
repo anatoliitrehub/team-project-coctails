@@ -1,4 +1,7 @@
 'use strict'
+import { galleryMarkUp } from './markup';
+import { FetchCocktails } from './fetch';
+
 const hero = () =>{
     const tableTd = document.querySelector('.contain__table');
     const charsItems = [];
@@ -26,9 +29,26 @@ if (j==12 || j==25 || j==38) sum +=`</tr>`;
 }
 if (tableTd) {
     tableTd.innerHTML = sum;
-    tableTd.addEventListener('click',(ev)=>console.log("letter is: ",ev.target.dataset['value']));
+    tableTd.addEventListener('click',sendRequest);
+}
+
+
+function sendRequest(ev){
+    const letter = ev.target.dataset['value'].toLowerCase();
+    console.log("letter is: ",letter)
+
+    const fetchCocktails = new FetchCocktails();
+    const galleryListEl = document.querySelector('.gallery__list');
+
+
+    fetchCocktails.fetchCocktailsByFirstLetter(letter).then(res => {
+        galleryListEl.innerHTML = galleryMarkUp(res.data.drinks);
+      })
+    // console.log(fetchLetter);
 }
 
 }
+
+
 
 export default hero();
