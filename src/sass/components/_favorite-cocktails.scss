@@ -1,0 +1,56 @@
+
+.favorite-cocktails__title {
+   @include font (600, 22px, calc(42 / 22));
+   color: var(--black);
+   margin-top: 60px;
+   margin-bottom: 60px;
+   margin-left: auto;
+   margin-right: auto;
+   text-align: center;
+  
+  @include tablet {
+    @include font (700, 32px, calc(38 / 32));
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @include desktop {
+    @include font (700, 48px, calc(72 / 48));
+    text-align: center;
+    margin-top: 69px;
+    margin-bottom: 60px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  }
+
+.favorite-cocktails__text {
+    @include font (400, 20px, calc(60 / 20));
+    color: var(--black);
+    text-align: center;
+    max-width: 239px;
+    padding-bottom: 232px;
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+
+  @include tablet {
+    @include font (400, 24px, calc(60 / 24));
+    max-width: 296px;
+    text-align: center;
+    padding-bottom: 633px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @include desktop {
+    @include font(400, 32px, calc(72 / 32));
+    max-width: 385px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 472px;
+
+  }
+  }

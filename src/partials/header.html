@@ -1,0 +1,115 @@
+<div class="header__wrapper container">
+  <nav class="header__nav">
+    <a href="./index.html" class="logo">
+      <img src="./images/logo-2x.png" alt="logo" width="156" height="43" />
+    </a>
+
+    <ul class="nav__list list">
+      <li class="nav-list__item">
+        <a href="./index.html" class="header__reset-link">Home</a>
+      </li>
+      <li class="nav-list__item">
+        <div class="header__dropdown">
+          <a href="#" class="header__reset-link">Favorite</a>
+          <div class="header__dropdown-content">
+            <div class="header__dropdown-content__wrapper">
+              <a href="./favcocktails.html">Favorite cocktails</a>
+
+              <a href="./favingredients.html">Favorite ingredients</a>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </nav>
+  <div class="header__form--wrapper">
+    <form action="" class="header__form--search">
+      <button type="submit" class="header__form--button">
+        <svg class="header__form-button-icon">
+          <use href="./images/icons.svg#icon-search-icon"></use>
+        </svg>
+      </button>
+      <input type="text" class="header__form-input" placeholder="Search" />
+    </form>
+  </div>
+  <div class="theme__wrapper">
+    <ul class="list theme__list">
+      <li class="theme__list-light header__current">Ligth</li>
+      <li>
+        <label class="header__switch">
+          <input type="checkbox" />
+          <span class="header__slider header__round"></span>
+        </label>
+      </li>
+      <li class="theme__list-dark">Dark</li>
+    </ul>
+  </div>
+  <!-- ------ burger      -->
+  <div class="header__burger-wrapper">
+    <button class="header__burger-menu" type="button">
+      <svg class="header__burger-menu__icon">
+        <use href="./images/icons.svg#icon-menu-burger"></use>
+      </svg>
+    </button>
+    <div class="header__mobile-menu container">
+      <div class="mobile-mebu___wraper-up-section">
+        <a href="./index.html" class="logo">
+          <img src="./images/logo-2x.png" alt="logo" width="156" height="43" />
+        </a>
+        <div class="theme__wrapper-mobile-menu">
+          <ul class="list theme__list-mobile-menu">
+            <li class="theme__list--mobile-menu-ligth header__current">
+              Ligth
+            </li>
+            <li>
+              <label class="header__switch-mobile-menu">
+                <input type="checkbox" />
+                <span
+                  class="header__slider-mobile-menu header__round-mobile-menu"
+                ></span>
+              </label>
+            </li>
+            <li class="theme__list--mobile-menu-dark">Dark</li>
+          </ul>
+        </div>
+        <button type="button" class="header__mobile-menu-close">
+          <svg class="header__mobile-menu-close__icon">
+            <use href="./images/icons.svg#icon-cross-close"></use>
+          </svg>
+        </button>
+      </div>
+
+      <div class="header__mobile-menu-form--wrapper">
+        <form action="" class="header__mobile-menu-form--search">
+          <button type="submit" class="header__mobile-menu-form--button">
+            <svg class="header__form-button-icon">
+              <use href="./images/icons.svg#icon-search-icon"></use>
+            </svg>
+          </button>
+          <input type="text" class="header__form-input" placeholder="Search" />
+        </form>
+      </div>
+      <ul class="header__mobile-menu-nav__list list">
+        <li class="header__mobile-menu-nav-list__item">
+          <a href="./index.html" class="header__reset-link">Home</a>
+        </li>
+        <li class="header__mobile-menu-nav-list__item">
+          <div class="header__mobile-menu-dropdown">
+            <a href="#" class="header__reset-link">Favorite</a>
+            <button type="button" class="mobile-menu-dropdown__btn">
+              <svg class="mobile-menu-dropdown__icon">
+                <use href="./images/icons.svg#icon-arrow-down"></use>
+              </svg>
+            </button>
+            <div class="header__mobile-menu-dropdown-content">
+              <div class="header__mobile-menu-dropdown-content__wrapper">
+                <a href="./favcocktails.html">Favorite cocktails</a>
+                <a href="./favingredients.html">Favorite ingredients</a>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 import { galleryMarkUp } from './markup';
 import { FetchCocktails } from './fetch';
 
@@ -46,12 +46,10 @@ function sendRequest(ev){
 
     fetchCocktails.fetchCocktailsByFirstLetter(letter).then(res => {
         // console.log(res.data.drinks)
-        galleryListEl.innerHTML = galleryMarkUp(res.data.drinks);
-      })
+        if (res.data.drinks !== null) {
+            galleryListEl.innerHTML = galleryMarkUp(res.data.drinks);
+        }
+    }
 }
-
-}
-
-
 
 export default hero();

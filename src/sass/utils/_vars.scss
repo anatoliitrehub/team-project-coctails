@@ -10,3 +10,26 @@ $black: rgba(32, 32, 37, 1);
 $black-modal: rgba(0, 0, 0, 1);
 $backdrop: rgba(94, 99, 99, 0.7);
 $trans: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+$orange: #fd5103;
+
+ // Themes
+.light {
+  // текст навигации, заголовков
+  --black: rgba(32, 32, 37, 1);
+  // цвет бекграунда
+  --white-modal-text: rgba(252, 252, 252, 1);
+  // grey-theme используются звездочки модалка
+  --grey-theme: rgba(95, 103, 117, 1);
+  // текст модалки
+  --grey-modal: rgba(95, 103, 117, 1);
+  //помаранчева лінія в модалці інгредієнтів
+  --orange-modal-line: rgba(253, 81, 3, 1);
+}
+
+.dark {
+  --black: rgba(252, 252, 252, 1);
+  --white-modal-text: rgba(32, 32, 37, 1);
+  --grey-theme: rgba(252, 252, 252, 1);
+  --grey-modal: rgba(189, 189, 189, 1);
+  --orange-modal-line: rgba(32, 32, 37, 1);
+}
