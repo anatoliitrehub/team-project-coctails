@@ -24,7 +24,7 @@ function onDropdown(event) {
 function onTheme(event) { 
     console.log(event.target.checked)
     if (event.target.checked) {
-        htmlEL.classList.remove('light')
+        htmlEL.classList.remove('lig')
         htmlEL.classList.add('dark')
     } else { 
          htmlEL.classList.remove('dark')
