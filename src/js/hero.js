@@ -4,16 +4,17 @@ import { FetchCocktails } from './fetch';
 
 function hero(){
     const tableTd = document.querySelector('.contain__table');
-    const charsItems = [];
-    for (let i=65; i<91; i++){
+    const select = document.querySelector('.contain__select');
+    const charsItems = [];                  // contsiner all chars
+    for (let i=65; i<91; i++){              // letters
     charsItems.push(String.fromCharCode(i))
 }
 
-for (let i=49; i<58; i++){
+for (let i=49; i<58; i++){                  // numbers 1-9
     charsItems.push(String.fromCharCode(i))
 }
 
-charsItems.push(String.fromCharCode(48))
+charsItems.push(String.fromCharCode(48))    // number 0
 // console.log(charsItems)
 
 let sum = '';
@@ -26,26 +27,27 @@ if (j==26) {
 sum += `<td class="table__item" data-value="${charsItems[j]}">${charsItems[j]}</td>`;
 if (j==12 || j==25 || j==38) sum +=`</tr>`;
 
+select.insertAdjacentHTML('beforeend',`<option class="select__item" data-value="${charsItems[j]}">${charsItems[j]}</option>`)
+
 }
 if (tableTd) {
     tableTd.innerHTML = sum;
-    tableTd.addEventListener('click',sendRequest);
-}
+    tableTd.addEventListener('click',(ev)=>sendRequest(ev.target.dataset['value']));
+};
+
+select.addEventListener('change',(ev)=>sendRequest(ev.target['value']));
 
 
 function sendRequest(ev){
-    const letter = ev.target.dataset['value'].toLowerCase();
-    // console.log("letter is: ",letter)
+    const letter = ev.toLowerCase();
 
     const fetchCocktails = new FetchCocktails();
     const galleryListEl = document.querySelector('.gallery__list');
 
-
     fetchCocktails.fetchCocktailsByFirstLetter(letter).then(res => {
-        console.log(res.data.drinks)
+        // console.log(res.data.drinks)
         galleryListEl.innerHTML = galleryMarkUp(res.data.drinks);
       })
-    // console.log(fetchLetter);
 }
 
 }
