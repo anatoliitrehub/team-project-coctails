@@ -1,4 +1,5 @@
 .hero{
+    margin-top: 60px;
     @include mobile{
         margin-top: 60px;
     }
@@ -14,6 +15,8 @@
 
 
 .hero__wrapper{
+    display: flex; 
+        flex-wrap: wrap;
     @include mobile{
         display: flex; 
         flex-wrap: wrap;
@@ -33,67 +36,81 @@
 }
 
 .hero__title{
-    @include mobile{
-       
-        max-width: 300px;
-        font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: $accent-color-hover;
+    width: 100%;
         font-size: 22px;
-        font-weight: 600;
         line-height: 1.9;
-        color: $accent-color-hover; 
+    @include mobile{
+        width: 300px;
+        font-size: 22px;
+        line-height: 1.9;
     }
     
     @include tablet{
         margin-top: 23px;
         margin-right: 32px;
         width: 336px;
-        font-family: 'Poppins', sans-serif;
         font-size: 26px;
-        font-weight: 600;
         line-height: 2;
-        color: $accent-color-hover; 
     }
     
     @include desktop{
-            
        margin-right: 59px;
        width: 688px;
-       font-family: 'Poppins', sans-serif;
        font-size: 52px;
-       font-weight: 600;
        line-height: 1.53;
-       color: $accent-color-hover;       
     }
 }
 
-.hero__image{
+ 
+.hero__picture{
+    margin-top: 60px;
+        margin-bottom: 60px;
+        width: 100%;
     @include mobile{
         margin-top: 60px;
         margin-bottom: 60px;
+        width: 280px;
     }
     
     @include tablet{
        width: 336px;
+       height: 294px;
+       margin-top: 0;
+        margin-bottom: 0;
     }
     
     @include desktop{
-        width:501px;      
+        width:501px; 
+        margin-top: 0;
+        margin-bottom: 0;     
     }
 }
 
 .hero__contain{
+    display: flex;
+         flex-direction: column;
+         align-items: center;
     @include mobile{
-         
+         display: flex;
+         flex-direction: column;
+         align-items: center;
     }
     
     @include tablet{
         position: absolute;
         top: 147px;
+        align-items:start;
+
     }
     
     @include desktop{
         position: absolute;
-        top: 200px; 
+        top: 200px;
+        align-items:start;
+ 
     }
 }
 
@@ -103,16 +120,20 @@
     font-weight: 500;
     line-height: 2;
     letter-spacing: 0.02em;
-    color: $black; 
+    margin-bottom: 20px;
+    color: $black-modal;
+
 
     @include mobile{
-        max-width:280px; 
-        margin-bottom: 20px;
+        // margin-bottom: 20px;
+        // color: $black-modal;
     }
     
     @include tablet{
        margin-bottom: 40px;
-       width:324px; 
+       width:324px;     
+       color: $black; 
+
     }
     
     @include desktop{
@@ -120,34 +141,47 @@
         width:607px; 
         font-size: 18px;
         line-height: 1.56;
+        color: $black; 
+
     }
 }
 
 .contain__table{
     font-family: 'Poppins', sans-serif;
+    display: none;
 
     @include mobile{
         display: none;
     }
     
     @include tablet{
-       
+        // outline: 1px green solid;
+        display: block;
     }
     
     @include desktop{
             // margin-top: 40px;
     //   width:607px; 
-      
+    //   outline: 1px green solid;
+    display: block;
     }
 }
 
 .table__item{
-    @include mobile{
+    text-align: center;
+    justify-items: center;
+    font-weight: 700;
+      line-height: 1.5;
+      
+      color: $grey;
+      transition: transform 250ms linear;
         
-    }
-    
     @include tablet{
-       
+        width:24px;
+      height: 25px;
+font-size: 14px;
+
+
     }
     
     @include desktop{
@@ -159,6 +193,16 @@
       line-height: 1.5;
       
       color: $grey; 
+    //   outline: 1px green solid;
+
+    }
+    &:hover, &:focus{
+        cursor: pointer;
+        -webkit-text-stroke: 1px $grey; /* width and color */
+        text-shadow: 0px 4px 4px rgba(95, 103, 117, 0.25);
+        -webkit-text-fill-color: $accent-color-hover; //or color
+        transform: scale(1.3);
+        
     }
 }
 
@@ -171,6 +215,15 @@
 .contain__select{
     @include mobile{
         // margin-top: 20px;
+        width: 93px;
+        height: 34px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1.35;
+        color: $white-modal-text; 
+    background-color: $accent-color-hover;
+
     }
     
     @include tablet{
@@ -179,7 +232,15 @@
     
     @include desktop{
         display: none;
-      
-      
     } 
+}
+
+.select__item{
+        // margin-top: 20px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1.35;
+        color: $white-modal-text; 
+
 }
