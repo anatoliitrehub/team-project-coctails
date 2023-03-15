@@ -12,7 +12,7 @@
 .gallery__title {
   @include font(700, 48px, calc(72 / 48));
   text-align: center;
-  color: $black;
+  color: var(--black);
 
   margin-bottom: 60px;
 }
@@ -72,9 +72,8 @@
 
 .gallery__figcaption--coctail {
   @include font(900, 32px, calc(38 / 32));
-  color: $black;
-
   margin-bottom: 27px;
+  color: var(--black);
 }
 
 .gallery__figcaption--buttons {
@@ -94,7 +93,7 @@
   background: $accent-color;
   border-radius: 4px;
   border-color: inherit;
-
+  border: none;
   padding: 12px 38px;
 }
 
@@ -111,13 +110,11 @@
 
   padding: 12px 24px 12px 18px;
 
+  display: flex;
   justify-content: center;
+  align-items: center;
   text-align: center;
 }
-
-// .gallery__figcaption--toggle {
-//   content: 'Remove';
-// }
 
 .gallery__figcaption--icon {
   width: 21px;

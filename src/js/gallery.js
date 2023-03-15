@@ -3,9 +3,8 @@
 import { galleryMarkUp } from './markup';
 import { FetchCocktails } from './fetch';
 
-
+const gallerySection = document.querySelector('.gallery');
 const galleryListEl = document.querySelector('.gallery__list');
-
 
 const fetchCocktails = new FetchCocktails();
 const arr = [];
@@ -24,11 +23,10 @@ for (let index = 0; index < 9; index++) {
 
 Promise.all(arr).then(result => {
   result.forEach(res => {
-    const drink = [res.data.drinks[0]]; 
+    const drink = [res.data.drinks[0]];
     galleryListEl.insertAdjacentHTML('beforeend', galleryMarkUp(drink));
-  })
+  });
 });
-
 
 // const handleToggleBtn = ({ target }) => {
 //   // console.log(target.textContent);
@@ -41,5 +39,27 @@ Promise.all(arr).then(result => {
 //   }
 // }
 
+const gallerySectionTitle = gallerySection.firstElementChild;
 
-// galleryListEl.addEventListener('click', handleToggleBtn)
+  // if (localStorage.getItem('theme') === 'dark') {
+  //   gallerySectionTitle.classList.add('gallery__thema--dark');
+  //   gallerySectionTitle.classList.remove('gallery__thema--light');
+  //   // coctailName.classList.add('gallery__thema--dark');
+  //   // coctailName.classList.remove('gallery__thema--light');
+  // } else {
+  //   gallerySectionTitle.classList.remove('gallery__thema--dark');
+  //   gallerySectionTitle.classList.add('gallery__thema--light');
+  //   // coctailName.classList.remove('gallery__thema--dark');
+  //   // coctailName.classList.add('gallery__thema--light');
+  // }
+
+// function onThemeSet(themeName) {
+
+//     if (themeName==='dark') {
+//         gallerySectionTitle.classList.remove('gallery__thema--light')
+//         gallerySectionTitle.classList.add('gallery__thema--dark')
+//     } else {
+//         gallerySectionTitle.classList.remove('gallery__thema--dark')
+//         gallerySectionTitle.classList.add('gallery__thema--light')
+//     }
+// }
