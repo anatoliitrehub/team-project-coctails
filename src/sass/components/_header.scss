@@ -1,3 +1,6 @@
+body {
+  background-color: var(--white-modal-text);
+}
 .header__reset-link {
   text-decoration: none;
 }
@@ -82,15 +85,13 @@
 
     letter-spacing: 0.02em;
 
-    // ---------------theme--------
-    // color: $black;
+    color: var(--black);
   }
 }
-// .nav__list .header__reset-link:link,
-// .nav__list .header__reset-link:visited {
-//   // ---------------theme--------
-//   // color: $black;
-// }
+.nav__list .header__reset-link:link,
+.nav__list .header__reset-link:visited {
+  color: var(--black);
+}
 
 // --------- search---------
 .header__form--wrapper {
@@ -133,6 +134,7 @@
   border-left: 1px solid $orange;
   background-color: inherit;
   padding: 8px 8px 8px 8px;
+  color: var(--black);
 }
 
 .header__form-input::placeholder {
@@ -179,8 +181,8 @@
 }
 .header__dropdown-content a {
   display: block;
-  // ---------theme-------//
-  // color: $black;
+
+  color: var(--black);
   padding: 12px 0 12px 12px;
   text-decoration: none;
   font-family: 'Poppins';
@@ -213,7 +215,7 @@
     font-size: 18px;
     line-height: 24px;
     //------theme------//
-    // color: $grey;
+    color: var(--grey-theme);
   }
 }
 
@@ -289,7 +291,7 @@ input:checked + .header__slider:before {
   display: block;
 
   // background-color: $black-modal;
-  background-color: white;
+  background-color: var(--white-modal-text);
   overflow: hidden;
   padding-top: 20px;
 }
@@ -322,7 +324,7 @@ input:checked + .header__slider:before {
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;
-  color: $grey;
+  color: var(--grey-theme);
   @include tablet {
     position: absolute;
     left: 45%;
@@ -472,45 +474,45 @@ input:checked + .header__slider:before {
 
 // test color
 
-.light {
-  background-color: white;
-  color: black;
-}
-.dark {
-  background-color: black;
-  color: white;
-}
+// .light {
+//   background-color: white;
+//   color: black;
+// }
+// .dark {
+//   background-color: black;
+//   color: white;
+// }
 
 // theme style
-html.light .nav__list {
-  color: $black;
-}
-html.dark .nav__list {
-  color: $white-modal-text;
-}
+// html.light .nav__list {
+//   color: var(--black);
+// }
+// html.dark .nav__list {
+//   color: $white-modal-text;
+// }
 
-html.light .nav__list .header__reset-link:link,
-html.light .nav__list .header__reset-link:visited {
-  color: $black;
-}
+// html.light .nav__list .header__reset-link:link,
+// html.light .nav__list .header__reset-link:visited {
+//   color: $black;
+// }
 
-html.dark .nav__list .header__reset-link:link,
-html.dark .nav__list .header__reset-link:visited {
-  color: $white-modal-text;
-}
-html.light .header__dropdown-content a {
-  color: $black;
-}
+// html.dark .nav__list .header__reset-link:link,
+// html.dark .nav__list .header__reset-link:visited {
+//   color: $white-modal-text;
+// }
+// html.light .header__dropdown-content a {
+//   color: $black;
+// }
 
-html.light .header__dropdown-content a:hover {
-  color: $white-modal-text;
-}
-html.dark .header__dropdown-content a {
-  color: $white-modal-text;
-}
-html.light .theme__list {
-  color: $grey;
-}
-html.dark .theme__list {
-  color: $white-modal-text;
-}
+// html.light .header__dropdown-content a:hover {
+//   color: $white-modal-text;
+// }
+// html.dark .header__dropdown-content a {
+//   color: $white-modal-text;
+// }
+// html.light .theme__list {
+//   color: $grey;
+// }
+// html.dark .theme__list {
+//   color: $white-modal-text;
+// }
