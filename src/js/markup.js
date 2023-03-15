@@ -1,9 +1,7 @@
 'use strict';
 
 export function galleryMarkUp(params) {
-    
-  const galleryMarkUp = params
-    .map(({strDrinkThumb, strDrink}) => {
+  const galleryMarkUp = params.map(({strDrinkThumb, strDrink}) => {
       return `<li class="gallery__item">
       <div class="gallery__box">
         <img
@@ -30,7 +28,6 @@ export function galleryMarkUp(params) {
         </div>
       </div>
     </li>`;
-    })
-    .join('');
+    }).join('');
   return galleryMarkUp;
 }
