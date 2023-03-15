@@ -49,7 +49,7 @@ function sendRequest(ev){
         if (res.data.drinks !== null) {
             galleryListEl.innerHTML = galleryMarkUp(res.data.drinks);
         }
-    }
+    });
 }
 
 export default hero();
