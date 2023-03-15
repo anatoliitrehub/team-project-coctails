@@ -10,13 +10,8 @@
 }
 
 .gallery__title {
-  font-style: normal;
-  font-weight: 700;
-  font-size: 48px;
-  line-height: 72px;
-
+  @include font(700, 48px, calc(72 / 48));
   text-align: center;
-
   color: $black;
 
   margin-bottom: 60px;
@@ -29,7 +24,6 @@
   justify-content: center;
   text-align: center;
   gap: 20px;
-  margin-top: 0;
   margin-bottom: 0;
   line-height: 0;
 
@@ -77,10 +71,7 @@
 }
 
 .gallery__figcaption--coctail {
-  font-weight: 900;
-  font-size: 32px;
-  line-height: 38px;
-
+  @include font(900, 32px, calc(38 / 32));
   color: $black;
 
   margin-bottom: 27px;
@@ -95,11 +86,7 @@
 }
 
 .gallery__figcaption--info {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 24px;
+  @include font(400, 20px, calc(24 / 20));
 
   letter-spacing: 0.02em;
 
@@ -112,11 +99,7 @@
 }
 
 .gallery__figcaption--storage {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 24px;
+  @include font(400, 20px, calc(24 / 20));
 
   letter-spacing: 0.02em;
 

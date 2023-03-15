@@ -2,7 +2,7 @@
 
 import axios from 'axios';
 
-export class fetchCocktails {
+export class FetchCocktails {
   BASE_URL = 'https://thecocktaildb.com/api/json/v1/1/';
 
   async fetchCocktailsRandom() {
