@@ -14,6 +14,7 @@
           <div class="header__dropdown-content">
             <div class="header__dropdown-content__wrapper">
               <a href="./favcocktails.html">Favorite cocktails</a>
+
               <a href="./favingredients.html">Favorite ingredients</a>
             </div>
           </div>
@@ -33,7 +34,7 @@
   </div>
   <div class="theme__wrapper">
     <ul class="list theme__list">
-      <li class="theme__list-light">Ligth</li>
+      <li class="theme__list-light header__current">Ligth</li>
       <li>
         <label class="header__switch">
           <input type="checkbox" />
@@ -57,14 +58,18 @@
         </a>
         <div class="theme__wrapper-mobile-menu">
           <ul class="list theme__list-mobile-menu">
-            <li class="theme__list-ligth">Ligth</li>
+            <li class="theme__list--mobile-menu-ligth header__current">
+              Ligth
+            </li>
             <li>
-              <label class="header__switch">
+              <label class="header__switch-mobile-menu">
                 <input type="checkbox" />
-                <span class="header__slider header__round"></span>
+                <span
+                  class="header__slider-mobile-menu header__round-mobile-menu"
+                ></span>
               </label>
             </li>
-            <li class="theme__list-dark">Dark</li>
+            <li class="theme__list--mobile-menu-dark">Dark</li>
           </ul>
         </div>
         <button type="button" class="header__mobile-menu-close">
