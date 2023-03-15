@@ -1,5 +1,8 @@
 'use strict'
-const hero = () =>{
+import { galleryMarkUp } from './markup';
+import { FetchCocktails } from './fetch';
+
+function hero(){
     const tableTd = document.querySelector('.contain__table');
     const charsItems = [];
     for (let i=65; i<91; i++){
@@ -16,7 +19,7 @@ charsItems.push(String.fromCharCode(48))
 let sum = '';
 
 for (let j=0;j<charsItems.length;j++){
-if (j==0) sum +=`<tr>`;
+if (j==0|| j==13 || j==26) sum +=`<tr>`;
 if (j==26) {
     sum += `<td class="table__item"></td>`;
 }
@@ -26,9 +29,27 @@ if (j==12 || j==25 || j==38) sum +=`</tr>`;
 }
 if (tableTd) {
     tableTd.innerHTML = sum;
-    tableTd.addEventListener('click',(ev)=>console.log("letter is: ",ev.target.dataset['value']));
+    tableTd.addEventListener('click',sendRequest);
+}
+
+
+function sendRequest(ev){
+    const letter = ev.target.dataset['value'].toLowerCase();
+    // console.log("letter is: ",letter)
+
+    const fetchCocktails = new FetchCocktails();
+    const galleryListEl = document.querySelector('.gallery__list');
+
+
+    fetchCocktails.fetchCocktailsByFirstLetter(letter).then(res => {
+        console.log(res.data.drinks)
+        galleryListEl.innerHTML = galleryMarkUp(res.data.drinks);
+      })
+    // console.log(fetchLetter);
 }
 
 }
+
+
 
 export default hero();
