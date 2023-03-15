@@ -51,5 +51,6 @@ function sendRequest(ev){
         }
     });
 }
+}
 
 export default hero();
