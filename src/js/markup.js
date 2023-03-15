@@ -1,13 +1,13 @@
 'use strict';
 
 export function galleryMarkUp(params) {
-  const galleryMarkUp = params.map(({strDrinkThumb, strDrink, strDrinkThumb}) => {
+  const galleryMarkUp = params.map(({strDrinkThumb, strDrink}) => {
       return `<li class="gallery__item">
       <div class="gallery__box">
         <img
           class="container gallery__picture"
           src=${strDrinkThumb}
-          alt=${strDrinkThumb}
+          alt=${strDrink}
         />
         <div class="gallery__figcaption">
           <h3 class="gallery__figcaption--coctail">${strDrink}</h3>
