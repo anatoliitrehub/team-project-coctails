@@ -1,16 +1,16 @@
 'use strict';
 
 import { galleryMarkUp } from './markup';
-import { FetchCoctails } from './fetch';
+import { FetchCocktails } from './fetch';
 
-const fetchCoctails = new FetchCoctails();
+const fetchCocktails = new FetchCocktails();
 
 const galleryListEl = document.querySelector('.gallery__list');
 
 const arr = [];
 
 for (let index = 0; index < 9; index++) {
-    const fetchResult = fetchCoctails.fetchCoctailsRandom().then(data => {
+    const fetchResult = fetchCocktails.fetchCocktailsRandom().then(data => {
         if (!data) {
             return new Promise();
         }
@@ -29,6 +29,6 @@ Promise.all(arr).then((res) => {
 });
 
 
-// fetchCoctails.fetchCoctailsByFirstName('bellini').then(res => console.log(res));
+// fetchCocktails.fetchCocktailsByFirstName('bellini').then(res => console.log(res));
 
-// fetchCoctails.fetchCoctailsByFirstLetter('a').then(res => console.log(res));
+// fetchCocktails.fetchCocktailsByFirstLetter('a').then(res => console.log(res));

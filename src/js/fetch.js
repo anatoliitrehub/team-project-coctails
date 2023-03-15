@@ -2,10 +2,10 @@
 
 import axios from 'axios';
 
-export class FetchCoctails {
+export class fetchCocktails {
   BASE_URL = 'https://thecocktaildb.com/api/json/v1/1/';
 
-  async fetchCoctailsRandom() {
+  async fetchCocktailsRandom() {
     const params = 'random.php';
 
     return await axios.get(`${this.BASE_URL}${params}`).then(response => {
@@ -13,7 +13,7 @@ export class FetchCoctails {
     });
   }
 
-  async fetchCoctailsByFirstLetter(letter) {
+  async fetchCocktailsByFirstLetter(letter) {
     const params = `search.php?f=${letter}`;
 
     return await axios.get(`${this.BASE_URL}${params}`).then(response => {
@@ -21,7 +21,7 @@ export class FetchCoctails {
     });
   }
 
-  async fetchCoctailsByFirstName(name) {
+  async fetchCocktailsByFirstName(name) {
     const params = `search.php?s=${name}`;
 
     return await axios.get(`${this.BASE_URL}${params}`).then(response => {
