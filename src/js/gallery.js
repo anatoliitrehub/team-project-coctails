@@ -43,9 +43,9 @@ Promise.all(arr).then(result => {
 });
 
 
-  
 
-  
+
+
 // document.querySelectorAll(".js-learn-more").forEach(elem => {
 //     elem.addEventListener('click', (e) => {
 //       const index = Number(e.target.dataset.index);
