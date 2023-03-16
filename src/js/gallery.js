@@ -7,8 +7,6 @@ import { showCocktailDetails } from './modalcocktails';
 const galleryListEl = document.querySelector('.gallery__list');
 
 
-
-
 const fetchCocktails = new FetchCocktails();
 const arr = [];
 
@@ -23,7 +21,6 @@ for (let index = 0; index < 9; index++) {
     arr.push(fetchResult);
   }
 }
-
 
 let drinks = [];
 Promise.all(arr).then(result => {
@@ -40,6 +37,15 @@ Promise.all(arr).then(result => {
   }
   addOnLearnMoreClick(drinks);
 });
+
+
+
+
+
+
+
+
+
 
 
 const handleAddBtnClick = ({ target }) => {
