@@ -25,7 +25,7 @@ export function galleryMarkUp(params) {
             >
             <span class="gallery__figcaption--text">Add to</span>
             <svg class="gallery__figcaption--icon">
-                <use href="${icons}#icon-heart"></use>
+                <use class="gallery__figcaption--svg" href="${icons}#icon-heart"></use>
               </svg>
             </button>
           </div>
