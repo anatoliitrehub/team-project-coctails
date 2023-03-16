@@ -1,3 +1,8 @@
+.section-pagination{
+padding-bottom: 62px;
+}
+
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -6,7 +11,8 @@
 }
 
 .pagination__btn {
-    
+  margin-top: 32px;
+
     @media screen and (max-width: 767px) {
       width: 32px;
       height: 32px;
@@ -36,6 +42,8 @@
 
 .pagination__btn--prev,
 .pagination__btn--next {
+  margin-top: 32px;
+
     @media screen and (max-width: 767px) {
         width: 32px;
         height: 32px;
@@ -66,3 +74,4 @@
   color: $basic-white;
   border: none;
 }
+
