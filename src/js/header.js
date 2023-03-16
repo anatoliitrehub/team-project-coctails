@@ -92,7 +92,7 @@ function onSearch(event) {
        
         fetchCocktails.fetchCocktailsByFirstName(event.target.name.value.trim()).then(res => {
            if (!res.data.drinks) {
-            galleryListEl.innerHTML = markupNotRequest();
+               galleryListEl.innerHTML = markupNotRequest();
                paginationEl.replaceChildren();
                event.target.name.value = '';
             return;
