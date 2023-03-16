@@ -14,6 +14,8 @@ const mobileMenuThemeBtn = document.querySelector('.header__switch-mobile-menu [
 const currentThemeLightMobileMenu = document.querySelector('.theme__list--mobile-menu-ligth');
 const currentThemeDarkMobileMenu = document.querySelector('.theme__list--mobile-menu-dark');
 const headerSearch = document.querySelector('.header__form--search');
+const headerMobileMenuSearch = document.querySelector('.header__mobile-menu-form--search');
+
 
 const fetchCocktails = new FetchCocktails();
 
@@ -96,6 +98,20 @@ function onSearch(event) {
          })
     }
 }
+function onSearchMobileMenu(event) { 
+    event.preventDefault();
+    fetchCocktails.fetchCocktailsByFirstName(event.target.name.value.trim()).then(res => {
+            console.log(res)
+            if (!res.data.drinks) { 
+                console.log('вставлю функцию с разметкой ничего не найдено')
+                event.target.name.value = '';
+                return;
+            }
+            renderPagination(res.data);
+            event.target.name.value = '';
+    })
+    onToggle();
+}
 
 // listeners
 mobileMenuOpen.addEventListener('click', onToggle)
@@ -103,4 +119,5 @@ mobileMenuClose.addEventListener('click', onToggle)
 dropdownBtn.addEventListener('click', onDropdown)
 themeBtnHeader.addEventListener('click', onTheme)
 mobileMenuThemeBtn.addEventListener('click', onTheme)
-headerSearch.addEventListener('submit',onSearch)
+headerSearch.addEventListener('submit', onSearch)
+headerMobileMenuSearch.addEventListener('submit', onSearchMobileMenu)
