@@ -88,9 +88,11 @@ function onSearch(event) {
             console.log(res)
             if (!res.data.drinks) { 
                 console.log('вставлю функцию с разметкой ничего не найдено')
+                event.target.name.value = '';
                 return;
             }
             renderPagination(res.data);
+            event.target.name.value = '';
          })
     }
 }
