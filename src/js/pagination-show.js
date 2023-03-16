@@ -4,21 +4,16 @@ import { pagination } from './pagination';
 const paginationEl = document.querySelector('.pagination');
 const galleryEl = document.querySelector('.gallery__list');
 
-
-let itemsPerPage = 9;
-let totalBtn = 7;
 let copyArr = [];
 let activePage = 1;
-let screenWidth = window.innerWidth;
 
-loadScreenSizeFromLocalStorage();
-
-function renderPagination({drinks}) {
+function renderPagination({ drinks }) {
   showPage(drinks);
   copyArr = [...drinks];
 }
 
 function showPage(items, currentPage = 1) {
+  screenWidthFull();
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const pageItems = items.slice(startIndex, endIndex);
@@ -29,7 +24,7 @@ function showPage(items, currentPage = 1) {
   galleryEl.insertAdjacentHTML('beforeend', galleryMarkUp(pageItems));
 
   paginationEl.replaceChildren();
-  
+
   const totalPage = Math.ceil(items.length / itemsPerPage);
   if (totalPage > 1) {
     createPrevBtn(currentPage);
@@ -93,16 +88,10 @@ function screenWidthFull() {
     totalBtn = 5;
   } else if (screenWidth < 1280) {
     itemsPerPage = 6;
+    totalBtn = 7;
   } else {
     itemsPerPage = 9;
-  }
-  localStorage.setItem('itemsPerPage', JSON.stringify(itemsPerPage));
-}
-
-function loadScreenSizeFromLocalStorage() {
-  const savedItemsPerPage = JSON.parse(localStorage.getItem('itemsPerPage'));
-  if (savedItemsPerPage !== null) {
-    itemsPerPage = parseInt(savedItemsPerPage);
+    totalBtn = 7;
   }
 }
 
@@ -123,6 +112,4 @@ paginationEl.addEventListener('click', prevPageActive);
 paginationEl.addEventListener('click', clickHandler);
 window.addEventListener('resize', screenWidthFull);
 
-screenWidthFull();
-
-export {renderPagination}
+export { renderPagination };

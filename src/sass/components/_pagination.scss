@@ -11,7 +11,8 @@ padding-bottom: 62px;
 }
 
 .pagination__btn {
-    
+  margin-top: 32px;
+
     @media screen and (max-width: 767px) {
       width: 32px;
       height: 32px;
@@ -41,6 +42,8 @@ padding-bottom: 62px;
 
 .pagination__btn--prev,
 .pagination__btn--next {
+  margin-top: 32px;
+
     @media screen and (max-width: 767px) {
         width: 32px;
         height: 32px;
@@ -71,3 +74,4 @@ padding-bottom: 62px;
   color: $basic-white;
   border: none;
 }
+
