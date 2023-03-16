@@ -1,6 +1,9 @@
 "use strict"
+import { FetchCocktails } from './fetch';
+import { renderPagination } from './pagination-show';
+import { markupNotRequest } from './markup-bad-request';
 
-
+const paginationEl = document.querySelector('.pagination');
 const mobileMenuOpen = document.querySelector('.header__burger-menu');
 const mobileMenuClose=document.querySelector('.header__mobile-menu-close')
 const mobileMenu=document.querySelector('.header__mobile-menu')
@@ -13,7 +16,12 @@ const currentThemeDarkHeader = document.querySelector('.theme__list-dark');
 const mobileMenuThemeBtn = document.querySelector('.header__switch-mobile-menu [type="checkbox"]');
 const currentThemeLightMobileMenu = document.querySelector('.theme__list--mobile-menu-ligth');
 const currentThemeDarkMobileMenu = document.querySelector('.theme__list--mobile-menu-dark');
+const headerSearch = document.querySelector('.header__form--search');
+const headerMobileMenuSearch = document.querySelector('.header__mobile-menu-form--search');
+const galleryListEl = document.querySelector('.gallery__list');
 
+
+const fetchCocktails = new FetchCocktails();
 
 if (localStorage.getItem('theme')) {
     onThemeSet(localStorage.getItem('theme'))
@@ -69,6 +77,57 @@ function onTheme(event) {
         onThemeSet('light')
     }
 }
+function onSearch(event) { 
+    event.preventDefault();
+    // console.dir(event.srcElement.ownerDocument.title);
+    if(event.srcElement.ownerDocument.title==="Favorite cocktails"){
+        console.log('done Favorite cocktails ')
+
+    } else if (event.srcElement.ownerDocument.title === "Favorite ingredients") {
+        console.log('done Favorite ingredients ')
+        
+     }else{
+        // console.log('done cocktails ')
+        // console.log(event.target.name.value.trim())
+       
+        fetchCocktails.fetchCocktailsByFirstName(event.target.name.value.trim()).then(res => {
+           if (!res.data.drinks) {
+               galleryListEl.innerHTML = markupNotRequest();
+               paginationEl.replaceChildren();
+               event.target.name.value = '';
+            return;
+            }
+            renderPagination(res.data);
+            event.target.name.value = '';
+            window.scrollTo({
+            top: 630
+         })
+    })
+        
+   
+    }
+   
+}
+function onSearchMobileMenu(event) { 
+    event.preventDefault();
+    fetchCocktails.fetchCocktailsByFirstName(event.target.name.value.trim()).then(res => {
+            console.log(res)
+            if (!res.data.drinks) {
+            galleryListEl.innerHTML = markupNotRequest();
+            paginationEl.replaceChildren();
+            event.target.name.value = '';
+            return;
+            }
+        
+            renderPagination(res.data);
+            event.target.name.value = '';
+    })
+    window.scrollTo({
+        top: 780
+    })
+    onToggle();
+}
+
 
 
 // listeners
@@ -76,4 +135,6 @@ mobileMenuOpen.addEventListener('click', onToggle)
 mobileMenuClose.addEventListener('click', onToggle)
 dropdownBtn.addEventListener('click', onDropdown)
 themeBtnHeader.addEventListener('click', onTheme)
-mobileMenuThemeBtn.addEventListener('click',onTheme)
+mobileMenuThemeBtn.addEventListener('click', onTheme)
+headerSearch.addEventListener('submit', onSearch)
+headerMobileMenuSearch.addEventListener('submit', onSearchMobileMenu)
