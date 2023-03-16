@@ -24,10 +24,10 @@ for (let index = 0; index < 9; index++) {
 
 let drinks = [];
 Promise.all(arr).then(result => {
-  result.forEach(res => {
-    const drink = [res.data.drinks[0]];
-    galleryListEl.insertAdjacentHTML('beforeend', galleryMarkUp(drink));
-  })
+  // result.forEach(res => {
+  //   const drink = [res.data.drinks[0]];
+  //   galleryListEl.insertAdjacentHTML('beforeend', galleryMarkUp(drink));
+  // })
 
   drinks = result.flatMap(item => item.data.drinks);
   console.log(drinks)
