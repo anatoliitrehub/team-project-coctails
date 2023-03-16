@@ -75,10 +75,6 @@ function sendRequest(ev){
         // else galleryListEl.innerHTML = galleryMarkUp(res.data.drinks); //if full obj we return page "It is Nothing.."
 
       });
-      
-      const  loc = localFavorites
-      console.dir(loc)
-  
 }
 }
 
