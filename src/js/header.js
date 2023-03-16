@@ -1,6 +1,9 @@
 "use strict"
 import { FetchCocktails } from './fetch';
 import { renderPagination } from './pagination-show';
+import { markupNotRequest } from './markup-bad-request';
+
+const paginationEl = document.querySelector('.pagination');
 const mobileMenuOpen = document.querySelector('.header__burger-menu');
 const mobileMenuClose=document.querySelector('.header__mobile-menu-close')
 const mobileMenu=document.querySelector('.header__mobile-menu')
@@ -15,6 +18,7 @@ const currentThemeLightMobileMenu = document.querySelector('.theme__list--mobile
 const currentThemeDarkMobileMenu = document.querySelector('.theme__list--mobile-menu-dark');
 const headerSearch = document.querySelector('.header__form--search');
 const headerMobileMenuSearch = document.querySelector('.header__mobile-menu-form--search');
+const galleryListEl = document.querySelector('.gallery__list');
 
 
 const fetchCocktails = new FetchCocktails();
@@ -87,26 +91,34 @@ function onSearch(event) {
         // console.log(event.target.name.value.trim())
        
         fetchCocktails.fetchCocktailsByFirstName(event.target.name.value.trim()).then(res => {
-            console.log(res)
-            if (!res.data.drinks) { 
-                console.log('вставлю функцию с разметкой ничего не найдено')
-                event.target.name.value = '';
-                return;
+           if (!res.data.drinks) {
+            galleryListEl.innerHTML = markupNotRequest();
+               paginationEl.replaceChildren();
+               event.target.name.value = '';
+            return;
             }
             renderPagination(res.data);
             event.target.name.value = '';
+            window.scrollTo({
+            top: 630
          })
+    })
+        
+   
     }
+   
 }
 function onSearchMobileMenu(event) { 
     event.preventDefault();
     fetchCocktails.fetchCocktailsByFirstName(event.target.name.value.trim()).then(res => {
             console.log(res)
-            if (!res.data.drinks) { 
-                console.log('вставлю функцию с разметкой ничего не найдено')
-                event.target.name.value = '';
-                return;
+            if (!res.data.drinks) {
+            galleryListEl.innerHTML = markupNotRequest();
+            paginationEl.replaceChildren();
+            event.target.name.value = '';
+            return;
             }
+        
             renderPagination(res.data);
             event.target.name.value = '';
     })
@@ -115,6 +127,8 @@ function onSearchMobileMenu(event) {
     })
     onToggle();
 }
+
+
 
 // listeners
 mobileMenuOpen.addEventListener('click', onToggle)
