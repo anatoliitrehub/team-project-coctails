@@ -121,7 +121,7 @@
     line-height: 2;
     letter-spacing: 0.02em;
     margin-bottom: 20px;
-    color: $black-modal;
+    color: $black;
 
 
     @include mobile{
@@ -132,7 +132,7 @@
     @include tablet{
        margin-bottom: 40px;
        width:324px;     
-       color: $black; 
+       color: var(--black); 
 
     }
     
@@ -141,7 +141,7 @@
         width:607px; 
         font-size: 18px;
         line-height: 1.56;
-        color: $black; 
+        color: var(--black); 
 
     }
 }
