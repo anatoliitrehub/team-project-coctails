@@ -1,16 +1,36 @@
-import { addOnLearnMoreClick, galleryMarkUp } from './markup';
+import { galleryMarkUp } from './markup';
 import { pagination } from './pagination';
+import { addOnLearnMoreClick } from './markup';
 
 const paginationEl = document.querySelector('.pagination');
 const galleryEl = document.querySelector('.gallery__list');
 
 let copyArr = [];
 let activePage = 1;
+let itemsPerPage;
+let totalBtn;
 
 function renderPagination({ drinks }) {
   showPage(drinks);
   copyArr = [...drinks];
 }
+
+function screenWidthFull() {
+  const screenWidth = window.innerWidth;
+ 
+
+  if (screenWidth < 768) {
+    itemsPerPage = 3;
+    totalBtn = 5;
+  } else if (screenWidth < 1280) {
+    itemsPerPage = 6;
+    totalBtn = 7;
+  } else {
+    itemsPerPage = 9;
+    totalBtn = 7;
+  }
+}
+
 
 function showPage(items, currentPage = 1) {
   screenWidthFull();
@@ -22,7 +42,7 @@ function showPage(items, currentPage = 1) {
 
   galleryEl.replaceChildren();
   galleryEl.insertAdjacentHTML('beforeend', galleryMarkUp(pageItems));
-  addOnLearnMoreClick(pageItems);
+  addOnLearnMoreClick(pageItems)
 
   paginationEl.replaceChildren();
 
@@ -79,21 +99,6 @@ function clickHandler(event) {
 
   const numberPage = +event.target.textContent;
   showPage(copyArr, numberPage);
-}
-
-function screenWidthFull() {
-  screenWidth = window.innerWidth;
-
-  if (screenWidth < 768) {
-    itemsPerPage = 3;
-    totalBtn = 5;
-  } else if (screenWidth < 1280) {
-    itemsPerPage = 6;
-    totalBtn = 7;
-  } else {
-    itemsPerPage = 9;
-    totalBtn = 7;
-  }
 }
 
 function nextPageActive(event) {
