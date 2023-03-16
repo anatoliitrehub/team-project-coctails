@@ -64,10 +64,11 @@ elemRefs.ingridList.addEventListener('click', event => {
   if (event.target.nodeName !== 'A' && event.target.nodeName !== 'SPAN') {
     return;
   }
+  
   const ingridName = event.target.lastChild.textContent
     .toLowerCase()
     .replace(' ', '%20');
-  console.log(ingridName);
+
   fetchIngridientsByName(ingridName).then(res => {
     console.log(res);
   });
