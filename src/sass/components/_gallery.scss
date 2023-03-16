@@ -112,6 +112,10 @@
   border-color: inherit;
   border: none;
   padding: 12px 38px;
+
+  @include tablet {
+    padding: 12px 15px;
+  }
 }
 
 .gallery__figcaption--storage {
