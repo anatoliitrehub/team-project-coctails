@@ -37,7 +37,7 @@ export function galleryMarkUp(params) {
 }
 
 // клік лістенер для Learn More кнопки на карточці з коктейлем
-export function addOnLearnMoreClick({drinks}) {
+export function addOnLearnMoreClick(drinks) {
     document.querySelectorAll('.js-learn-more').forEach(elem => {
       elem.addEventListener('click', e => {
         const index = Number(e.target.dataset.index);
