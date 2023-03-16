@@ -1,17 +1,22 @@
 'use strict';
 import { FetchCocktails } from'./fetch';
+import {localFavorites} from './localfavorites';
+import { showIngredientDetails } from "./modalingredients";
+
 const fetchCocktails = new FetchCocktails();
 
 const elemRefs = {
-
   openLearnMoreBtn: document.querySelector('.js-learn-more'),
   closeModalCockBtn: document.querySelector('[data-modal-close-cocktails]'),
+  addBtn: document.querySelector('.js-add-btn'),
+  removeBtn: document.querySelector('.js-remove-btn'),
   backdrop: document.querySelector('[data-modal-backdrop]'),
   body: document.querySelector('body'),
   title: document.querySelector('.cocktail__title'),
   cocktailImg: document.querySelector('.cocktail__photo'),
   ingridList: document.querySelector('.ingredients-list'),
   instruction: document.querySelector('.instraction__descr'),
+  // addBtn: document.querySelector('.js-add-btn'),
 };
 
 elemRefs.closeModalCockBtn.addEventListener('click', toggleModalWindow);
@@ -21,6 +26,7 @@ export function toggleModalWindow() {
   elemRefs.backdrop.classList.toggle('is-hidden');
   if (!elemRefs.backdrop.classList.contains('is-hidden')) {
     elemRefs.body.style.overflowY = 'hidden';
+    // elemRefs.addBtn.textContent ='Add to favorite';
   } else {
     elemRefs.body.style.overflowY = 'auto';
   }
@@ -33,8 +39,22 @@ function onBackdropClick(event) {
 }
 
 export function showCocktailDetails(cocktail) {
+
   elemRefs.title.textContent = cocktail.strDrink;
   elemRefs.cocktailImg.src = cocktail.strDrinkThumb;
+  
+  const dataCocktail = localFavorites.getLocal('favcock').find(obj => obj.idDrink === cocktail.idDrink);
+  if(dataCocktail){
+    elemRefs.addBtn.classList.add('is-hidden-btn')
+      elemRefs.removeBtn.classList.remove('is-hidden-btn')
+  }else{
+    elemRefs.addBtn.classList.remove('is-hidden-btn')
+      elemRefs.removeBtn.classList.add('is-hidden-btn')
+  }
+    
+  
+ 
+  
   const ingridients = [];
   const measure = [];
 
@@ -55,9 +75,24 @@ export function showCocktailDetails(cocktail) {
       }
     })
     .join('');
+    elemRefs.ingridList.innerHTML ="";
   elemRefs.ingridList.insertAdjacentHTML('beforeend', str);
   elemRefs.instruction.textContent = cocktail.strInstructions;
 
+ elemRefs.addBtn.addEventListener('click', event => {
+      localFavorites.addLocal('favcock', cocktail);
+      elemRefs.addBtn.classList.add('is-hidden-btn')
+      elemRefs.removeBtn.classList.remove('is-hidden-btn')
+    })
+   
+
+  elemRefs.removeBtn.addEventListener('click', event => {
+    localFavorites.removeLocal('favcock', cocktail)
+    elemRefs.removeBtn.classList.add('is-hidden-btn')
+    elemRefs.addBtn.classList.remove('is-hidden-btn')
+    
+  })
+  
   toggleModalWindow();
 }
 elemRefs.ingridList.addEventListener('click', event => {
@@ -72,7 +107,11 @@ elemRefs.ingridList.addEventListener('click', event => {
 
     fetchCocktails.fetchIngridientsByName(ingridName).then(res => {
     console.log(res);
+    showIngredientDetails(res.data.ingredients[0]);
   });
 });
-
+// fetchCocktails.fetchIngridientsByName(ingridName).then(res => {
+//   console.log(res);
+  
+// });
 
