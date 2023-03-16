@@ -34,17 +34,6 @@ Promise.all(arr).then(result => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  drinks = result.flatMap(item => item.data.drinks);
+  console.log(drinks)
+  galleryListEl.insertAdjacentHTML('beforeend', galleryMarkUp(drinks));

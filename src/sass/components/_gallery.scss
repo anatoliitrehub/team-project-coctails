@@ -51,12 +51,26 @@
 .gallery__box {
   border: 1px solid $orange;
   border-radius: 4px;
+
+  @include tablet {
+    width: 335px;
+  }
+  @include desktop {
+    width: 395px;
+  }
 }
 
 .gallery__picture {
   padding: 0;
   width: 395px;
   height: 395px;
+
+  @include tablet {
+    width: 335px;
+  }
+  @include desktop {
+    width: 395px;
+  }
 }
 
 .gallery__figcaption {
@@ -75,6 +89,7 @@
   margin-bottom: 27px;
   color: var(--black);
 
+  height: 38px;
   overflow: hidden;
 }
 
