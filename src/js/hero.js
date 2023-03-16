@@ -2,6 +2,7 @@
 import { galleryMarkUp } from './markup';
 import { FetchCocktails } from './fetch';
 import { showCocktailDetails } from './modalcocktails';
+import {renderPagination} from './pagination-show';
 
 function hero(){
     const tableTd = document.querySelector('.contain__table');
@@ -60,16 +61,17 @@ function sendRequest(ev){
         // console.log(res.data.drinks)
         drinks = res.data.drinks;
         if (res.data.drinks) {
-          galleryListEl.innerHTML = galleryMarkUp(drinks);
-          document.querySelectorAll('.js-learn-more').forEach(elem => {
-            elem.addEventListener('click', e => {
-              const index = Number(e.target.dataset.index);
-              console.log(index, drinks[index]);
-              showCocktailDetails(drinks[index]);
-            });
-          });
+            renderPagination(res.data);
+        //   galleryListEl.innerHTML = galleryMarkUp(drinks);
+        //   document.querySelectorAll('.js-learn-more').forEach(elem => {
+        //     elem.addEventListener('click', e => {
+        //       const index = Number(e.target.dataset.index);
+        //       console.log(index, drinks[index]);
+        //       showCocktailDetails(drinks[index]);
+        //     });
+        //   });
         }
-        else galleryListEl.innerHTML = galleryMarkUp(res.data.drinks); //if full obj we return page "It is Nothing.."
+        // else galleryListEl.innerHTML = galleryMarkUp(res.data.drinks); //if full obj we return page "It is Nothing.."
 
       });
 }
