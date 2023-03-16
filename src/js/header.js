@@ -110,6 +110,9 @@ function onSearchMobileMenu(event) {
             renderPagination(res.data);
             event.target.name.value = '';
     })
+    window.scrollTo({
+        top: 750
+    })
     onToggle();
 }
 
