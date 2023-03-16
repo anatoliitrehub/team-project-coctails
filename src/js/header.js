@@ -111,7 +111,7 @@ function onSearchMobileMenu(event) {
             event.target.name.value = '';
     })
     window.scrollTo({
-        top: 750
+        top: 780
     })
     onToggle();
 }
