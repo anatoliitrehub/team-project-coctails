@@ -1,6 +1,6 @@
 "use strict"
-
-
+import { FetchCocktails } from './fetch';
+import { renderPagination } from './pagination-show';
 const mobileMenuOpen = document.querySelector('.header__burger-menu');
 const mobileMenuClose=document.querySelector('.header__mobile-menu-close')
 const mobileMenu=document.querySelector('.header__mobile-menu')
@@ -15,6 +15,7 @@ const currentThemeLightMobileMenu = document.querySelector('.theme__list--mobile
 const currentThemeDarkMobileMenu = document.querySelector('.theme__list--mobile-menu-dark');
 const headerSearch = document.querySelector('.header__form--search');
 
+const fetchCocktails = new FetchCocktails();
 
 if (localStorage.getItem('theme')) {
     onThemeSet(localStorage.getItem('theme'))
@@ -72,7 +73,26 @@ function onTheme(event) {
 }
 function onSearch(event) { 
     event.preventDefault();
-    console.dir(event.srcElement.ownerDocument.title);
+    // console.dir(event.srcElement.ownerDocument.title);
+    if(event.srcElement.ownerDocument.title==="Favorite cocktails"){
+        console.log('done Favorite cocktails ')
+
+    } else if (event.srcElement.ownerDocument.title === "Favorite ingredients") {
+        console.log('done Favorite ingredients ')
+        
+     }else{
+        // console.log('done cocktails ')
+        // console.log(event.target.name.value.trim())
+       
+        fetchCocktails.fetchCocktailsByFirstName(event.target.name.value.trim()).then(res => {
+            console.log(res)
+            if (!res.data.drinks) { 
+                console.log('вставлю функцию с разметкой ничего не найдено')
+                return;
+            }
+            renderPagination(res.data);
+         })
+    }
 }
 
 // listeners
