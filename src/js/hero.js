@@ -55,6 +55,7 @@ function sendRequest(ev){
     // }
     // );
 
+    let drinks = [];
     fetchCocktails.fetchCocktailsByFirstLetter(letter).then(res => {
         // console.log(res.data.drinks)
         drinks = res.data.drinks;
