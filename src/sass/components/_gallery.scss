@@ -12,7 +12,7 @@
 .gallery__title {
   @include font(700, 48px, calc(72 / 48));
   text-align: center;
-  color: $black;
+  color: var(--black);
 
   margin-bottom: 60px;
 }
@@ -51,12 +51,26 @@
 .gallery__box {
   border: 1px solid $orange;
   border-radius: 4px;
+
+  @include tablet {
+    width: 335px;
+  }
+  @include desktop {
+    width: 395px;
+  }
 }
 
 .gallery__picture {
   padding: 0;
   width: 395px;
   height: 395px;
+
+  @include tablet {
+    width: 335px;
+  }
+  @include desktop {
+    width: 395px;
+  }
 }
 
 .gallery__figcaption {
@@ -66,15 +80,17 @@
     padding: 20px;
   }
   @include desktop {
-    padding: 20px 27px 28px 27px;
+    padding: 20px 0px 28px 0px;
   }
 }
 
 .gallery__figcaption--coctail {
   @include font(900, 32px, calc(38 / 32));
-  color: $black;
-
   margin-bottom: 27px;
+  color: var(--black);
+
+  height: 38px;
+  overflow: hidden;
 }
 
 .gallery__figcaption--buttons {
@@ -94,8 +110,12 @@
   background: $accent-color;
   border-radius: 4px;
   border-color: inherit;
-
+  border: none;
   padding: 12px 38px;
+
+  @include tablet {
+    padding: 12px 15px;
+  }
 }
 
 .gallery__figcaption--storage {
@@ -111,14 +131,17 @@
 
   padding: 12px 24px 12px 18px;
 
+  display: flex;
   justify-content: center;
+  align-items: center;
   text-align: center;
+  gap: 10px;
 }
 
 .gallery__figcaption--icon {
   width: 21px;
   height: 19px;
 
-  fill: $basic-white-text;
+  fill: var(--btn-icon-heart);
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
