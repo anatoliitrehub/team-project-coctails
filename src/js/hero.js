@@ -1,6 +1,7 @@
 'use strict';
 import { galleryMarkUp } from './markup';
 import { FetchCocktails } from './fetch';
+import { showCocktailDetails } from './modalcocktails';
 
 function hero(){
     const tableTd = document.querySelector('.contain__table');
@@ -44,12 +45,32 @@ function sendRequest(ev){
     const fetchCocktails = new FetchCocktails();
     const galleryListEl = document.querySelector('.gallery__list');
 
+    // fetchCocktails.fetchCocktailsByFirstLetter(letter).then(res => {
+    //     // console.log(res.data.drinks)
+    //     if (res.data.drinks) {
+    //         galleryListEl.innerHTML = galleryMarkUp(res.data.drinks);   // if obj then return cards
+    //     }
+    //     else galleryListEl.innerHTML = galleryMarkUp(res.data.drinks); //if full obj we return page "It is Nothing.."
+
+    // }
+    // );
+
     fetchCocktails.fetchCocktailsByFirstLetter(letter).then(res => {
         // console.log(res.data.drinks)
-        if (res.data.drinks !== null) {
-            galleryListEl.innerHTML = galleryMarkUp(res.data.drinks);
+        drinks = res.data.drinks;
+        if (res.data.drinks) {
+          galleryListEl.innerHTML = galleryMarkUp(drinks);
+          document.querySelectorAll('.js-learn-more').forEach(elem => {
+            elem.addEventListener('click', e => {
+              const index = Number(e.target.dataset.index);
+              console.log(index, drinks[index]);
+              showCocktailDetails(drinks[index]);
+            });
+          });
         }
-    });
+        else galleryListEl.innerHTML = galleryMarkUp(res.data.drinks); //if full obj we return page "It is Nothing.."
+
+      });
 }
 }
 
