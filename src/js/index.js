@@ -7,7 +7,8 @@ import { favoriteingredients } from './favoriteingredients';
 import { localFavorites } from './localfavorites';
 import { modalcocktails } from './modalcocktails';
 import { modalingredients } from './modalingredients';
-import { pagination } from './pagination'
+import { renderPagination } from './pagination-show'
+
 
 
 
