@@ -31,13 +31,21 @@ Promise.all(arr).then(result => {
 
   drinks = result.flatMap(item => item.data.drinks);
   console.log(drinks)
+  if (window.innerWidth >= 1280) {
   galleryListEl.insertAdjacentHTML('beforeend', galleryMarkUp(drinks));
+  } else if (window.innerWidth < 768) {
+    const mobileDrinks = drinks.slice(0, 3);
+    galleryListEl.insertAdjacentHTML('beforeend', galleryMarkUp(mobileDrinks));
+  } else {
+    const tabletDrinks = drinks.slice(0, 6);
+    galleryListEl.insertAdjacentHTML('beforeend', galleryMarkUp(tabletDrinks));
+  }
 });
 
 
-  
 
-  
+
+
 // document.querySelectorAll(".js-learn-more").forEach(elem => {
 //     elem.addEventListener('click', (e) => {
 //       const index = Number(e.target.dataset.index);
