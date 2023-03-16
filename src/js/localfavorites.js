@@ -14,7 +14,9 @@ const localFavorites = {
 
     removeLocal(key,obj){
         let loc = (localStorage.getItem(key)) ? JSON.parse(localStorage.getItem(key)) : [];
-        const temp = loc.filter(item => item.idDrink!==obj.idDrink);
+        let temp = [];
+        if(key='favcock') temp = loc.filter(item => item.idDrink!==obj.idDrink);
+        if(key='favingr') temp = loc.filter(item => item.idIngredient!==obj.idIngredient);
         console.log('temp',temp)
         localStorage.setItem(key,JSON.stringify(temp));
     }
