@@ -13,6 +13,7 @@ const currentThemeDarkHeader = document.querySelector('.theme__list-dark');
 const mobileMenuThemeBtn = document.querySelector('.header__switch-mobile-menu [type="checkbox"]');
 const currentThemeLightMobileMenu = document.querySelector('.theme__list--mobile-menu-ligth');
 const currentThemeDarkMobileMenu = document.querySelector('.theme__list--mobile-menu-dark');
+const headerSearch = document.querySelector('.header__form--search');
 
 
 if (localStorage.getItem('theme')) {
@@ -69,11 +70,15 @@ function onTheme(event) {
         onThemeSet('light')
     }
 }
-
+function onSearch(event) { 
+    event.preventDefault();
+    console.dir(event.srcElement.ownerDocument.title);
+}
 
 // listeners
 mobileMenuOpen.addEventListener('click', onToggle)
 mobileMenuClose.addEventListener('click', onToggle)
 dropdownBtn.addEventListener('click', onDropdown)
 themeBtnHeader.addEventListener('click', onTheme)
-mobileMenuThemeBtn.addEventListener('click',onTheme)
+mobileMenuThemeBtn.addEventListener('click', onTheme)
+headerSearch.addEventListener('submit',onSearch)
