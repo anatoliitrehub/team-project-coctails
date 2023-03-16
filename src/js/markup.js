@@ -23,8 +23,8 @@ export function galleryMarkUp(params) {
               data-favcoctail="add"
               data-favcoctail="remove"
             >
-              Add to
-              <svg class="gallery__figcaption--icon">
+            <span class="gallery__figcaption--text">Add to</span>
+            <svg class="gallery__figcaption--icon">
                 <use href="${icons}#icon-heart"></use>
               </svg>
             </button>

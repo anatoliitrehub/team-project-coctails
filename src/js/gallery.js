@@ -4,8 +4,10 @@ import { galleryMarkUp, addOnLearnMoreClick } from './markup';
 import { FetchCocktails } from './fetch';
 import { showCocktailDetails } from './modalcocktails';
 
-const gallerySection = document.querySelector('.gallery');
 const galleryListEl = document.querySelector('.gallery__list');
+
+
+
 
 const fetchCocktails = new FetchCocktails();
 const arr = [];
@@ -24,11 +26,6 @@ for (let index = 0; index < 9; index++) {
 
 let drinks = [];
 Promise.all(arr).then(result => {
-  // result.forEach(res => {
-  //   const drink = [res.data.drinks[0]];
-  //   galleryListEl.insertAdjacentHTML('beforeend', galleryMarkUp(drink));
-  // })
-
   drinks = result.flatMap(item => item.data.drinks);
   console.log(drinks)
   if (window.innerWidth >= 1280) {
@@ -44,6 +41,25 @@ Promise.all(arr).then(result => {
 });
 
 
+const handleAddBtnClick = ({ target }) => {
+  // console.log('click');
+
+  if (!target.classList.contains('gallery__figcaption--storage') || !target.classList.contains('gallery__figcaption--storage') || !target.classList.contains('gallery__figcaption--storage')) {
+    return;
+  }
+  
+  if (target.textContent === 'Remove') {
+    target.textContent = "Add to"
+    console.log('Add to');
+    return;
+  } else {
+    target.textContent = "Remove"
+    console.log('Remove');
+    return;
+  }
+};
+
+galleryListEl.addEventListener('click', handleAddBtnClick)
 
 
 
