@@ -28,8 +28,15 @@ export class FetchCocktails {
       return response;
     });
   }
-}
 
+  async fetchIngridientsByName(name) {
+    const params = `search.php?i=${name}`;
+
+    return await axios.get(`${this.BASE_URL}${params}`).then(response => {
+      return response;
+    });
+  }
+}
 
 // В класі FetchCocktails є 3 методи (fetchCocktailsRandom, fetchCocktailsByFirstLetter, fetchCocktailsByFirstName)
 // Імпортуємо собі в свій файл даний класс import { FetchCocktails } from './fetch';
@@ -48,4 +55,4 @@ export class FetchCocktails {
 
 // З методом/функцією fetchCocktailsByFirstLetter така ж історія.
 // Імпортуємо клас, робимо від нього собі інстанс. Тепер в Вашому файлі є об'єкт fetchCocktails з функцією fetchCocktailsByFirstLetter.
-// Використовуємо її в середині колбек функції на подію клік.
+// Використовуємо її в середині колбек функції на подію клік
