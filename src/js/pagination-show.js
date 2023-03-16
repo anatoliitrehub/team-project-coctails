@@ -1,4 +1,4 @@
-import { galleryMarkUp } from './markup';
+import { addOnLearnMoreClick, galleryMarkUp } from './markup';
 import { pagination } from './pagination';
 
 const paginationEl = document.querySelector('.pagination');
@@ -27,6 +27,7 @@ function showPage(items, currentPage = 1) {
 
   galleryEl.replaceChildren();
   galleryEl.insertAdjacentHTML('beforeend', galleryMarkUp(pageItems));
+  addOnLearnMoreClick(pageItems);
 
   paginationEl.replaceChildren();
   

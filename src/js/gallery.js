@@ -1,6 +1,6 @@
 'use strict';
 
-import { galleryMarkUp } from './markup';
+import { galleryMarkUp, addOnLearnMoreClick } from './markup';
 import { FetchCocktails } from './fetch';
 import { showCocktailDetails } from './modalcocktails';
 
@@ -40,6 +40,7 @@ Promise.all(arr).then(result => {
     const tabletDrinks = drinks.slice(0, 6);
     galleryListEl.insertAdjacentHTML('beforeend', galleryMarkUp(tabletDrinks));
   }
+  addOnLearnMoreClick(drinks);
 });
 
 
