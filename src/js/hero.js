@@ -3,7 +3,6 @@ import { galleryMarkUp } from './markup';
 import { FetchCocktails } from './fetch';
 import { showCocktailDetails } from './modalcocktails';
 import {renderPagination} from './pagination-show';
-import {localFavorites} from './localfavorites';
 
 function hero(){
     const tableTd = document.querySelector('.contain__table');
@@ -75,10 +74,6 @@ function sendRequest(ev){
         // else galleryListEl.innerHTML = galleryMarkUp(res.data.drinks); //if full obj we return page "It is Nothing.."
 
       });
-      
-      const  loc = localFavorites
-      console.dir(loc)
-  
 }
 }
 
