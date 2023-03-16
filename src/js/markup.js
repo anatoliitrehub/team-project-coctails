@@ -1,5 +1,7 @@
 'use strict';
 
+import * as icons from '../images/icons.svg';
+
 export function galleryMarkUp(params) {
   const galleryMarkUp = params.map(({strDrinkThumb, strDrink}) => {
       return `<li class="gallery__item">
@@ -22,7 +24,7 @@ export function galleryMarkUp(params) {
             >
               Add to
               <svg class="gallery__figcaption--icon">
-                <use href="./images/icons.adfc4680.svg#icon-heart"></use>
+                <use href="${icons}#icon-heart"></use>
               </svg>
             </button>
           </div>
