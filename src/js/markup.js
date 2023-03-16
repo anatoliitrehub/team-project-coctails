@@ -1,7 +1,7 @@
 'use strict';
 
 export function galleryMarkUp(params) {
-  const galleryMarkUp = params.map(({strDrinkThumb, strDrink}, index) => {
+  const galleryMarkUp = params.map(({strDrinkThumb, strDrink}) => {
       return `<li class="gallery__item">
       <div class="gallery__box">
         <img
@@ -12,7 +12,7 @@ export function galleryMarkUp(params) {
         <div class="gallery__figcaption">
           <h3 class="gallery__figcaption--coctail">${strDrink}</h3>
           <div class="gallery__figcaption--buttons">
-            <button class="gallery__figcaption--info js-learn-more" data-index="${index}">
+            <button class="gallery__figcaption--info js-learn-more">
               Learn more
             </button>
             <button
@@ -22,7 +22,7 @@ export function galleryMarkUp(params) {
             >
               Add to
               <svg class="gallery__figcaption--icon">
-                <use href="./icons.svg#icon-heart"></use>
+                <use href="./images/icons.adfc4680.svg#icon-heart"></use>
               </svg>
             </button>
           </div>

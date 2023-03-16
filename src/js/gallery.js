@@ -48,38 +48,3 @@ Promise.all(arr).then(result => {
 
 
 
-// const handleToggleBtn = ({ target }) => {
-//   // console.log(target.textContent);
-//   if (target.classList.contains('gallery__figcaption--storage')) {
-//     target.textContent = `Remove`;
-//     return;
-//   }
-//   if (target.textContent === 'Remove') {
-//     target.textContent = 'Add to'
-//   }
-// }
-
-const gallerySectionTitle = gallerySection.firstElementChild;
-
-  // if (localStorage.getItem('theme') === 'dark') {
-  //   gallerySectionTitle.classList.add('gallery__thema--dark');
-  //   gallerySectionTitle.classList.remove('gallery__thema--light');
-  //   // coctailName.classList.add('gallery__thema--dark');
-  //   // coctailName.classList.remove('gallery__thema--light');
-  // } else {
-  //   gallerySectionTitle.classList.remove('gallery__thema--dark');
-  //   gallerySectionTitle.classList.add('gallery__thema--light');
-  //   // coctailName.classList.remove('gallery__thema--dark');
-  //   // coctailName.classList.add('gallery__thema--light');
-  // }
-
-// function onThemeSet(themeName) {
-
-//     if (themeName==='dark') {
-//         gallerySectionTitle.classList.remove('gallery__thema--light')
-//         gallerySectionTitle.classList.add('gallery__thema--dark')
-//     } else {
-//         gallerySectionTitle.classList.remove('gallery__thema--dark')
-//         gallerySectionTitle.classList.add('gallery__thema--light')
-//     }
-// }
