@@ -1,5 +1,6 @@
 'use strict';
-
+import { FetchCocktails } from'./fetch';
+const fetchCocktails = new FetchCocktails();
 
 const elemRefs = {
 
@@ -64,20 +65,14 @@ elemRefs.ingridList.addEventListener('click', event => {
   if (event.target.nodeName !== 'A' && event.target.nodeName !== 'SPAN') {
     return;
   }
+  
   const ingridName = event.target.lastChild.textContent
     .toLowerCase()
     .replace(' ', '%20');
-  console.log(ingridName);
-  fetchIngridientsByName(ingridName).then(res => {
+
+    fetchCocktails.fetchIngridientsByName(ingridName).then(res => {
     console.log(res);
   });
 });
 
-// Все що знизу вставити в fetch.js як метод класу після ф-ї async fetchCocktailsByFirstName
-// async function fetchIngridientsByName(name) {
-//   const params = `search.php?i=${name}`;
 
-//   return await axios.get(`${this.BASE_URL}${params}`).then(response => {
-//     return response;
-//   });
-// }
