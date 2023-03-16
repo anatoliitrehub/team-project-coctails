@@ -87,12 +87,7 @@
   &:focus {
     color: $accent-color-hover;
   }
-  &:hover .ingred__symbol {
-    color: $accent-color-hover;
-  }
-}
-.ingred__symbol {
-  color: var(--grey-theme);
+
 }
 .cocktail-instraction {
   margin-top: 28px;
