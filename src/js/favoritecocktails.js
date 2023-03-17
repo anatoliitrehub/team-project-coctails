@@ -14,12 +14,10 @@ try{
     // console.log (data)
         // document.querySelector('.favorite-cocktails__text').innerHTML = '';
         document.querySelector('.favorite-cocktails__text').classList.add('is-hidden-card')
-        document.querySelector('.favorite-cocktails__title').classList.add('is-hidden-card')
     renderPagination(data);
     }
     else {
         document.querySelector('.favorite-cocktails__text').classList.remove('is-hidden-card');
-        document.querySelector('.favorite-cocktails__title').classList.remove('is-hidden-card');
     }
 
     // document.querySelector('.gallery__list').innerHTML = data
