@@ -100,8 +100,8 @@ function onSearch(event) {
         fetchCocktails.fetchCocktailsByFirstName(event.target.name.value.trim()).then(res => {
             if (!res.data.drinks) {
                 galleryTitle.innerHTML = `<h2 class="gallery__title">Sorry, we didn't find any cocktail for you</h2>`;
-               galleryListEl.innerHTML = markupNotRequest();
-               paginationEl.replaceChildren();
+            //    galleryListEl.innerHTML = markupNotRequest();
+            //    paginationEl.replaceChildren();
                event.target.name.value = '';
             return;
             }
@@ -120,8 +120,8 @@ function onSearchMobileMenu(event) {
     fetchCocktails.fetchCocktailsByFirstName(event.target.name.value.trim()).then(res => {
             console.log(res)
             if (!res.data.drinks) {
-            galleryListEl.innerHTML = markupNotRequest();
-            paginationEl.replaceChildren();
+            // galleryListEl.innerHTML = markupNotRequest();
+            // paginationEl.replaceChildren();
             event.target.name.value = '';
             return;
             }
