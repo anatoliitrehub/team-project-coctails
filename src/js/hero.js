@@ -36,8 +36,10 @@ select.insertAdjacentHTML('beforeend',`<option class="select__item" data-value="
 if (tableTd) {
     tableTd.innerHTML = sum;
     tableTd.addEventListener('click',(ev)=>{
-        // console.log(ev.target.classList);
-        console.log(document.querySelectorAll('table__item'));
+
+        if(document.querySelector('.table__item--activ')!==null) {
+            console.log('ok')
+            document.querySelector('.table__item--activ').classList.remove('table__item--activ')}
         ev.target.classList.add('table__item--activ');
         sendRequest(ev.target.dataset['value']);
     });
