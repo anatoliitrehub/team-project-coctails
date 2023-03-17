@@ -107,6 +107,7 @@
 
   width: 108px;
   height: 39px;
+  cursor: pointer;
 
   @include tablet {
     @include font(400, 20px, calc(24 / 20));
@@ -123,6 +124,18 @@
     height: auto;
     padding: 12px 38px;
     font-size: 20px;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $basic-white;
+    color: $accent-color-hover;
+    border: 1px solid $accent-color-hover;
+  }
+  &:active {
+    background-color: $accent-color-hover;
+    color: $basic-white-text;
+    border: none;
   }
 }
 
@@ -144,6 +157,8 @@
 
   width: 108px;
   height: 39px;
+
+  cursor: pointer;
 
   @include tablet {
     @include font(400, 20px, calc(24 / 20));
