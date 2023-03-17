@@ -2,6 +2,8 @@
 import { FetchCocktails } from './fetch';
 import { renderPagination } from './pagination-show';
 import { markupNotRequest } from './markup-bad-request';
+import { localFavorites } from './localfavorites';
+import { galleryMarkUp } from './markup';
 
 const paginationEl = document.querySelector('.pagination');
 const mobileMenuOpen = document.querySelector('.header__burger-menu');
@@ -19,7 +21,8 @@ const currentThemeDarkMobileMenu = document.querySelector('.theme__list--mobile-
 const headerSearch = document.querySelector('.header__form--search');
 const headerMobileMenuSearch = document.querySelector('.header__mobile-menu-form--search');
 const galleryListEl = document.querySelector('.gallery__list');
-const galleryTitle=document.querySelector('.gallerry__title-main-wrepper')
+const galleryTitle = document.querySelector('.gallerry__title-main-wrepper')
+const sectionCockt= document.querySelector('.favorite-cocktails')
 
 
 const fetchCocktails = new FetchCocktails();
@@ -83,9 +86,12 @@ function onSearch(event) {
     // console.dir(event.srcElement.ownerDocument.title);
     if(event.srcElement.ownerDocument.title==="Favorite cocktails"){
         console.log('done Favorite cocktails ')
+        searchFavoriteCockt(event);
 
     } else if (event.srcElement.ownerDocument.title === "Favorite ingredients") {
         console.log('done Favorite ingredients ')
+        
+
         
      }else{
         // console.log('done cocktails ')
@@ -106,13 +112,11 @@ function onSearch(event) {
             top: 630
          })
     })
-        
-   
     }
-   
 }
 function onSearchMobileMenu(event) { 
     event.preventDefault();
+    
     fetchCocktails.fetchCocktailsByFirstName(event.target.name.value.trim()).then(res => {
             console.log(res)
             if (!res.data.drinks) {
@@ -130,6 +134,29 @@ function onSearchMobileMenu(event) {
     })
     onToggle();
 }
+
+////favcockt
+function searchFavoriteCockt(event) { 
+    event.target.name.value
+    
+    console.log(event.target.name.value);
+    const data = localFavorites.getLocal("favcockt")
+    console.log(data)
+    const resultSearch = data.filter(el => {
+     
+       return  el.strDrink.toLowerCase().includes(event.target.name.value)
+        
+     })
+    console.log(resultSearch)
+    const markupLi=galleryMarkUp(resultSearch);
+    const str = ` <ul class="gallery__list">${markupLi}</ul>`;
+   
+    sectionCockt.insertAdjacentHTML('beforeend',str)
+   
+    event.target.name.value = '';
+    
+}
+
 
 
 
