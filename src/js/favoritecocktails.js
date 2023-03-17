@@ -8,8 +8,9 @@ import {renderPagination} from './pagination-show';
     const data = {
         drinks:localFavorites.getLocal('favcockt')
     };
-
-    if(data){
+    // console.log(data.drinks.length)
+try{
+    if(data.drinks.length !== 0){
     // console.log (data)
         // document.querySelector('.favorite-cocktails__text').innerHTML = '';
         document.querySelector('.favorite-cocktails__text').classList.add('is-hidden-card')
@@ -18,6 +19,8 @@ import {renderPagination} from './pagination-show';
     else document.querySelector('.favorite-cocktails__text').classList.remove('is-hidden-card')
 
     // document.querySelector('.gallery__list').innerHTML = data
+}
+catch{}
 }
 
 export default favoritecocktails()
