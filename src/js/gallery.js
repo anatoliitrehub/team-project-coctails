@@ -27,10 +27,10 @@ for (let index = 0; index < 9; index++) {
   }
 }
 
-let drinks = [];
 Promise.all(arr).then(result => {
-  drinks = result.flatMap(item => item.data.drinks);
-  idDrink = drinks.map(drink => drink.idDrink);
+  const drinks = result.flatMap(item => item.data.drinks);
+  console.log("Promise.all  drinks:", drinks)
+  const idDrink = drinks.map(drink => drink.idDrink);
   console.log(idDrink);
 
 
