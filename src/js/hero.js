@@ -36,8 +36,10 @@ select.insertAdjacentHTML('beforeend',`<option class="select__item" data-value="
 if (tableTd) {
     tableTd.innerHTML = sum;
     tableTd.addEventListener('click',(ev)=>{
-        console.log(ev)
-        sendRequest(ev.target.dataset['value'])
+        // console.log(ev.target.classList);
+        console.log(document.querySelectorAll('table__item'));
+        ev.target.classList.add('table__item--activ');
+        sendRequest(ev.target.dataset['value']);
     });
 };
 
@@ -50,21 +52,11 @@ function sendRequest(ev){
     const fetchCocktails = new FetchCocktails();
     const galleryListEl = document.querySelector('.gallery__list');
 
-    // fetchCocktails.fetchCocktailsByFirstLetter(letter).then(res => {
-    //     // console.log(res.data.drinks)
-    //     if (res.data.drinks) {
-    //         galleryListEl.innerHTML = galleryMarkUp(res.data.drinks);   // if obj then return cards
-    //     }
-    //     else galleryListEl.innerHTML = galleryMarkUp(res.data.drinks); //if full obj we return page "It is Nothing.."
-
-    // }
-    // );
 
     let drinks = [];
     fetchCocktails.fetchCocktailsByFirstLetter(letter).then(res => {
-        // console.log(res.data.drinks)
         drinks = res.data.drinks;
-        if (res.data.drinks) {
+        // if (res.data.drinks) {
             renderPagination(res.data);
         //   galleryListEl.innerHTML = galleryMarkUp(drinks);
         //   document.querySelectorAll('.js-learn-more').forEach(elem => {
@@ -77,7 +69,8 @@ function sendRequest(ev){
         }
         // else galleryListEl.innerHTML = galleryMarkUp(res.data.drinks); //if full obj we return page "It is Nothing.."
 
-      });
+    //   }
+      );
 }
 }
 
