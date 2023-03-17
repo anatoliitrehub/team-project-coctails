@@ -16,7 +16,7 @@ const localFavorites = {
     },
 
     removeLocal(key,obj){
-        let lococ = (localStorage.getItem("favcock")) ? JSON.parse(localStorage.getItem("favcock")) : [];
+        let lococ = (localStorage.getItem("favcockt")) ? JSON.parse(localStorage.getItem("favcockt")) : [];
         let tempCoc = [];
         let locin = (localStorage.getItem("favingr")) ? JSON.parse(localStorage.getItem("favingr")) : [];
         let tempIng = [];
