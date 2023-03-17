@@ -30,7 +30,14 @@ if (j==26) {
 sum += `<td class="table__item" data-value="${charsItems[j]}">${charsItems[j]}</td>`;
 if (j==12 || j==25 || j==38) sum +=`</tr>`;
 
+try{
 select.insertAdjacentHTML('beforeend',`<option class="select__item" data-value="${charsItems[j]}">${charsItems[j]}</option>`)
+}
+catch{
+    console.log("not main page");
+}
+
+
 
 }
 if (tableTd) {
@@ -44,8 +51,12 @@ if (tableTd) {
     });
 };
 
+try{
 select.addEventListener('change',(ev)=>sendRequest(ev.target['value']));
-
+}
+catch{
+    console.log('not main page')
+}
 
 function sendRequest(ev){
     const letter = ev.toLowerCase();
