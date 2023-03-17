@@ -216,7 +216,7 @@ font-size: 14px;
     -webkit-text-stroke: 1px $grey; /* width and color */
     text-shadow: 0px 4px 4px rgba(95, 103, 117, 0.25);
     -webkit-text-fill-color: $accent-color-hover; //or color
-    transform: scale(1.3);
+    // transform: scale(1.3);
 }
 
 .contain__select{
@@ -226,8 +226,26 @@ font-size: 14px;
         font-size: 16px;
         font-weight: 700;
         line-height: 1.35;
+    //     color: $white-modal-text; 
+    // background-color: $accent-color-hover;
+    background: transparent;
+    border-color: $accent-color-hover;
+    color: $accent-color-hover;
+    border-radius: 4px;
+    padding-left: 10px;
+    &:focus{
+        // background-color: $accent-color-hover;
         color: $white-modal-text; 
-    background-color: $accent-color-hover;
+        background-color: $accent-color-hover;
+
+    }
+
+    &:active{
+        // background: transparent;
+        color:$grey;
+
+    }
+
     @include mobile{
         // margin-top: 20px;
     //     width: 93px;
@@ -258,5 +276,17 @@ font-size: 14px;
         line-height: 1.35;
         color: $white-modal-text; 
         width:inherit;
+        // background: transparent;
 display: inline-block;
+
+&:focus, &:hover{
+    color: $white-modal-text; 
+    // background: transparent;
+
+}
+
+&:active{
+    background: transparent;
+
+}
 }
