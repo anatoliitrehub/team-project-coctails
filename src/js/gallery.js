@@ -10,7 +10,7 @@ import { showCocktailDetails } from './modalcocktails';
 const galleryListEl = document.querySelector('.gallery__list');
 const galleryTitle = document.querySelector('.gallerry__title-main-wrepper');
 
-const FAV_COCKTAIL_KEY = "favcock";
+const FAV_COCKTAIL_KEY = "favcockt";
 
 const fetchCocktails = new FetchCocktails();
 const arr = [];
@@ -29,15 +29,8 @@ for (let index = 0; index < 9; index++) {
 
 Promise.all(arr).then(result => {
   const drinks = result.flatMap(item => item.data.drinks);
-  console.log("Promise.all  drinks:", drinks)
   const idDrink = drinks.map(drink => drink.idDrink);
   console.log(idDrink);
-
-
-  
-
-
-
 
   if (window.innerWidth >= 1280) {
     galleryTitle.innerHTML =  `<h2 class="gallery__title">Cocktails</h2> `;
@@ -56,8 +49,6 @@ Promise.all(arr).then(result => {
   
   const btnAddTo = document.querySelectorAll('.gallery__figcaption--storage');
   const btnIcon = document.querySelectorAll('.gallery__figcaption--icon');
-  console.log(btnIcon)
-  let booleanBtnAddTo = false;
 
   isInFavorites(idDrink);
 
@@ -80,7 +71,7 @@ Promise.all(arr).then(result => {
       localFavorites.addLocal(FAV_COCKTAIL_KEY, objDrink)
     } else {
       target.closest('.gallery__figcaption--storage').firstElementChild.textContent = 'Add to';
-      target.closest('.gallery__figcaption--storage').lastElementChild.style.fill = '#fff';
+      target.closest('.gallery__figcaption--storage').lastElementChild.style.fill = 'var(--white-modal-text)';
       localFavorites.removeLocal(FAV_COCKTAIL_KEY, objDrink);
     };
   }
