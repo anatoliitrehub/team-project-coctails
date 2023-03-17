@@ -82,13 +82,12 @@
   @include font(900, 32px, calc(38 / 32));
   color: var(--black);
   margin-bottom: 20px;
-  
 
   @include tablet{
     // margin-bottom: 28px;
     // margin-left: 320px;
     position:absolute;
-    left:44%;
+    left:40%;
     top:40px;
 
   }
@@ -97,7 +96,7 @@
     // margin-bottom: 28px;
     // margin-left: 320px;
     position:absolute;
-    left:345px;
+    left:313px;
     top:40px;
   }
   
