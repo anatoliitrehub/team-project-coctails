@@ -96,14 +96,6 @@ function onSearch(event) {
      }else{
        
         fetchCocktails.fetchCocktailsByFirstName(event.target.name.value.trim()).then(res => {
-            // if (!res.data.drinks) {
-            //     galleryTitle.innerHTML = `<h2 class="gallery__title">Sorry, we didn't find any cocktail for you</h2>`;
-            // //    galleryListEl.innerHTML = markupNotRequest();
-            // //    paginationEl.replaceChildren();
-            //    event.target.name.value = '';
-            
-            // }
-            // galleryTitle.innerHTML = `<h2 class="gallery__title">Searching results</h2>`;
             renderPagination(res.data);
             event.target.name.value = '';
             window.scrollTo({
@@ -119,11 +111,6 @@ function onSearchMobileMenu(event) {
     
     fetchCocktails.fetchCocktailsByFirstName(event.target.name.value.trim()).then(res => {
             console.log(res)
-            // if (!res.data.drinks) {
-            // // galleryListEl.innerHTML = markupNotRequest();
-            // // paginationEl.replaceChildren();
-            // event.target.name.value = '';
-            // }
         
             renderPagination(res.data);
             event.target.name.value = '';
@@ -139,16 +126,14 @@ function searchFavoriteCockt(event) {
 
     
     const data = localFavorites.getLocal("favcockt")
-    console.log(data)
+
+    console.log('улюблені коктейль з локал сторедж', data)
     const resultSearch = {
         drinks: data.filter(el => {
             return el.strDrink.toLowerCase().includes(event.target.name.value.toLowerCase())
         })
     }
-    console.log(resultSearch.drinks.length)
-    // if (resultSearch.drinks.length === 0) {
-    //     console.log('not founsd')
-    // } else { }
+   
     renderPagination(resultSearch);
     event.target.name.value = '';
 }
