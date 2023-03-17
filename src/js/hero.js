@@ -35,7 +35,10 @@ select.insertAdjacentHTML('beforeend',`<option class="select__item" data-value="
 }
 if (tableTd) {
     tableTd.innerHTML = sum;
-    tableTd.addEventListener('click',(ev)=>sendRequest(ev.target.dataset['value']));
+    tableTd.addEventListener('click',(ev)=>{
+        console.log(ev)
+        sendRequest(ev.target.dataset['value'])
+    });
 };
 
 select.addEventListener('change',(ev)=>sendRequest(ev.target['value']));

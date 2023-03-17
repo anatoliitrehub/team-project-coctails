@@ -153,7 +153,7 @@
   margin-bottom: 40px;
   margin-top: 32px;
   padding: 12px 24px;
-  max-width: 248px;
+  max-width: 300px;
   height: 48px;
   font-family: 'Roboto';
   @include font(400, 20px, 1.2);
@@ -179,7 +179,14 @@
 
   &:hover,
   &:focus {
+    background-color: $basic-white;
+    color: $accent-color-hover;
+    border: 1px solid $accent-color-hover;
+  }
+  &:active {
     background-color: $accent-color-hover;
+    color: $basic-white-text;
+    border: none;
   }
 }
 
