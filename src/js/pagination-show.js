@@ -1,9 +1,11 @@
 import { galleryMarkUp } from './markup';
 import { pagination } from './pagination';
 import { addOnLearnMoreClick } from './markup';
+import { markupNotRequest } from './markup-bad-request';
 
 const paginationEl = document.querySelector('.pagination');
 const galleryEl = document.querySelector('.gallery__list');
+const galleryTitle=document.querySelector('.gallerry__title-main-wrepper')
 
 let copyArr = [];
 let activePage = 1;
@@ -11,6 +13,15 @@ let itemsPerPage;
 let totalBtn;
 
 function renderPagination({ drinks }) {
+    if(!drinks){
+      galleryTitle.innerHTML = `<h2 class="gallery__title">Sorry, we didn't find any cocktail for you</h2>`;
+      galleryEl.innerHTML = markupNotRequest();
+      paginationEl.replaceChildren();
+    return
+    }else{
+      galleryTitle.innerHTML = `<h2 class="gallery__title">Searching results</h2>`;
+    }
+   
   showPage(drinks);
   copyArr = [...drinks];
 }
