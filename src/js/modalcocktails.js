@@ -1,10 +1,10 @@
 'use strict';
-import { FetchCocktails } from'./fetch';
-import {localFavorites} from './localfavorites';
-import { showIngredientDetails } from "./modalingredients";
+import { FetchCocktails } from './fetch';
+import { localFavorites } from './localfavorites';
+import { showIngredientDetails } from './modalingredients';
 
 const fetchCocktails = new FetchCocktails();
-
+const FAV_COCKT_KEY = "favcockt";
 const elemRefs = {
   openLearnMoreBtn: document.querySelector('.js-learn-more'),
   closeModalCockBtn: document.querySelector('[data-modal-close-cocktails]'),
@@ -22,16 +22,6 @@ const elemRefs = {
 elemRefs.closeModalCockBtn.addEventListener('click', toggleModalWindow);
 elemRefs.backdrop.addEventListener('click', onBackdropClick);
 
-export function toggleModalWindow() {
-  elemRefs.backdrop.classList.toggle('is-hidden');
-  if (!elemRefs.backdrop.classList.contains('is-hidden')) {
-    elemRefs.body.style.overflowY = 'hidden';
-    // elemRefs.addBtn.textContent ='Add to favorite';
-  } else {
-    elemRefs.body.style.overflowY = 'auto';
-  }
-}
-
 function onBackdropClick(event) {
   if (event.currentTarget === event.target) {
     toggleModalWindow();
@@ -39,22 +29,21 @@ function onBackdropClick(event) {
 }
 
 export function showCocktailDetails(cocktail) {
-
   elemRefs.title.textContent = cocktail.strDrink;
   elemRefs.cocktailImg.src = cocktail.strDrinkThumb;
-  
-  const dataCocktail = localFavorites.getLocal('favcock').find(obj => obj.idDrink === cocktail.idDrink);
-  if(dataCocktail){
-    elemRefs.addBtn.classList.add('is-hidden-btn')
-      elemRefs.removeBtn.classList.remove('is-hidden-btn')
-  }else{
-    elemRefs.addBtn.classList.remove('is-hidden-btn')
-      elemRefs.removeBtn.classList.add('is-hidden-btn')
+
+  const dataCocktail = localFavorites
+    .getLocal(FAV_COCKT_KEY)
+    .find(obj => obj.idDrink === cocktail.idDrink);
+
+  if (dataCocktail) {
+    elemRefs.addBtn.classList.add('is-hidden-btn');
+    elemRefs.removeBtn.classList.remove('is-hidden-btn');
+  } else {
+    elemRefs.addBtn.classList.remove('is-hidden-btn');
+    elemRefs.removeBtn.classList.add('is-hidden-btn');
   }
-    
-  
- 
-  
+
   const ingridients = [];
   const measure = [];
 
@@ -66,6 +55,7 @@ export function showCocktailDetails(cocktail) {
       measure.push(cocktail[key]);
     }
   }
+
   const str = ingridients
     .map((element, index) => {
       if (!measure[index]) {
@@ -75,43 +65,52 @@ export function showCocktailDetails(cocktail) {
       }
     })
     .join('');
-    elemRefs.ingridList.innerHTML ="";
+
+  elemRefs.ingridList.innerHTML = '';
   elemRefs.ingridList.insertAdjacentHTML('beforeend', str);
   elemRefs.instruction.textContent = cocktail.strInstructions;
 
- elemRefs.addBtn.addEventListener('click', event => {
-      localFavorites.addLocal('favcock', cocktail);
-      elemRefs.addBtn.classList.add('is-hidden-btn')
-      elemRefs.removeBtn.classList.remove('is-hidden-btn')
-    })
-   
+  elemRefs.addBtn.addEventListener('click', event => {
+    localFavorites.addLocal(FAV_COCKT_KEY, cocktail);
+    elemRefs.addBtn.classList.add('is-hidden-btn');
+    elemRefs.removeBtn.classList.remove('is-hidden-btn');
+  });
 
   elemRefs.removeBtn.addEventListener('click', event => {
-    localFavorites.removeLocal('favcock', cocktail)
-    elemRefs.removeBtn.classList.add('is-hidden-btn')
-    elemRefs.addBtn.classList.remove('is-hidden-btn')
-    
-  })
-  
+    localFavorites.removeLocal(FAV_COCKT_KEY, cocktail);
+    elemRefs.removeBtn.classList.add('is-hidden-btn');
+    elemRefs.addBtn.classList.remove('is-hidden-btn');
+  });
+
   toggleModalWindow();
 }
 elemRefs.ingridList.addEventListener('click', event => {
   event.preventDefault();
+
   if (event.target.nodeName !== 'A' && event.target.nodeName !== 'SPAN') {
     return;
   }
-  
+
   const ingridName = event.target.lastChild.textContent
     .toLowerCase()
     .replace(' ', '%20');
 
-    fetchCocktails.fetchIngridientsByName(ingridName).then(res => {
+  fetchCocktails.fetchIngridientsByName(ingridName).then(res => {
     console.log(res);
     showIngredientDetails(res.data.ingredients[0]);
   });
 });
+
+export function toggleModalWindow() {
+  elemRefs.backdrop.classList.toggle('is-hidden');
+
+  if (!elemRefs.backdrop.classList.contains('is-hidden')) {
+    elemRefs.body.style.overflowY = 'hidden';
+  } else {
+    elemRefs.body.style.overflowY = 'auto';
+  }
+}
 // fetchCocktails.fetchIngridientsByName(ingridName).then(res => {
 //   console.log(res);
-  
-// });
 
+// });

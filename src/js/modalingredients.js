@@ -17,13 +17,8 @@ elemRefs.closeModalCockBtn.addEventListener('click', toggleModalWindow);
 elemRefs.backdrop.addEventListener('click', onBackdropClick);
 elemRefs.favoriteBtn.addEventListener('click', toggleFavorite);
 
-export function toggleModalWindow() {
+function toggleModalWindow() {
   elemRefs.backdrop.classList.toggle('is-hidden');
-  if (!elemRefs.backdrop.classList.contains('is-hidden')) {
-    elemRefs.body.style.overflowY = 'hidden';
-  } else {
-    elemRefs.body.style.overflowY = 'auto';
-  }
 }
 
 function onBackdropClick(event) {
@@ -36,6 +31,7 @@ const listItem = (name, value) =>
   `<li class="ingred__item">${name}: ${value}</li>`;
 
 let currentIngredient = {};
+
 export function showIngredientDetails(ingredient) {
   console.log('ingredient', ingredient);
   currentIngredient = ingredient;
