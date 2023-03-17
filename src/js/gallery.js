@@ -10,7 +10,7 @@ import { showCocktailDetails } from './modalcocktails';
 const galleryListEl = document.querySelector('.gallery__list');
 const galleryTitle = document.querySelector('.gallerry__title-main-wrepper');
 
-const FAV_COCKTAIL_KEY = 'favcock';
+const FAV_COCKTAIL_KEY = "favcockt";
 
 const fetchCocktails = new FetchCocktails();
 const arr = [];
