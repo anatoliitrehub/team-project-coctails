@@ -22,12 +22,12 @@ const localFavorites = {
         let tempIng = [];
 
         switch (key){
-            case "favcock":
+            case "favcockt":
                 // lococ = (localStorage.getItem("favcock")) ? JSON.parse(localStorage.getItem("favcock")) : [];
                 // tempCoc = [];
                 tempCoc = lococ.filter(item => item.idDrink!==obj.idDrink);
-                localStorage.setItem("favcock",[]);
-                localStorage.setItem("favcock",JSON.stringify(tempCoc));
+                localStorage.setItem("favcockt",[]);
+                localStorage.setItem("favcockt",JSON.stringify(tempCoc));
                 Notiflix.Notify.success('Item remove from favorites successfully');
                 console.log("remove coc")
             break;
