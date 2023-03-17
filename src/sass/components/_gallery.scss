@@ -97,8 +97,6 @@
 }
 
 .gallery__figcaption--info {
-  @include font(400, 20px, calc(24 / 20));
-
   letter-spacing: 0.02em;
 
   color: $basic-white-text;
@@ -106,16 +104,42 @@
   border-radius: 4px;
   border-color: inherit;
   border: none;
-  padding: 12px 38px;
+
+  width: 108px;
+  height: 39px;
+  cursor: pointer;
 
   @include tablet {
+    @include font(400, 20px, calc(24 / 20));
     padding: 12px 15px;
+    width: auto;
+    height: auto;
+    padding: 12px 16px;
+    font-size: 20px;
+  }
+  @include desktop {
+    @include font(400, 20px, calc(24 / 20));
+    padding: 12px 38px;
+    width: auto;
+    height: auto;
+    padding: 12px 38px;
+    font-size: 20px;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $basic-white;
+    color: $accent-color-hover;
+    border: 1px solid $accent-color-hover;
+  }
+  &:active {
+    background-color: $accent-color-hover;
+    color: $basic-white-text;
+    border: none;
   }
 }
 
 .gallery__figcaption--storage {
-  @include font(400, 20px, calc(24 / 20));
-
   letter-spacing: 0.02em;
 
   border: 2px solid $orange;
@@ -124,12 +148,35 @@
   color: $orange;
   background: inherit;
 
-  padding: 12px 24px 12px 18px;
+  padding: 12px;
 
   display: flex;
   align-items: center;
   text-align: center;
   gap: 10px;
+
+  width: 108px;
+  height: 39px;
+
+  cursor: pointer;
+
+  @include tablet {
+    @include font(400, 20px, calc(24 / 20));
+    padding: 12px 15px;
+    width: auto;
+    height: auto;
+    padding: 12px 13px;
+    font-size: 20px;
+  }
+
+  @include desktop {
+    @include font(400, 20px, calc(24 / 20));
+    padding: 12px 38px;
+    width: auto;
+    height: auto;
+    padding: 12px 24px;
+    font-size: 20px;
+  }
 }
 
 .gallery__figcaption--icon {
