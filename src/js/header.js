@@ -142,14 +142,14 @@ function searchFavoriteCockt(event) {
     console.log(data)
     const resultSearch = {
         drinks: data.filter(el => {
-            return el.strDrink.toLowerCase().includes(event.target.name.value)
+            return el.strDrink.toLowerCase().includes(event.target.name.value.toLowerCase())
         })
     }
     console.log(resultSearch.drinks.length)
-    if (resultSearch.drinks.length === 0) {
-        console.log('not founsd')
-    } else { renderPagination(resultSearch);}
-    
+    // if (resultSearch.drinks.length === 0) {
+    //     console.log('not founsd')
+    // } else { }
+    renderPagination(resultSearch);
     event.target.name.value = '';
 }
 
