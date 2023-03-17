@@ -38,8 +38,7 @@ if (tableTd) {
     tableTd.addEventListener('click',(ev)=>{
 
         if(document.querySelector('.table__item--activ')!==null) {
-            console.log('ok')
-            document.querySelector('.table__item--activ').classList.remove('table__item--activ')}
+        document.querySelector('.table__item--activ').classList.remove('table__item--activ')}
         ev.target.classList.add('table__item--activ');
         sendRequest(ev.target.dataset['value']);
     });
