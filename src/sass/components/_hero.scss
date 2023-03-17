@@ -220,9 +220,7 @@ font-size: 14px;
 }
 
 .contain__select{
-    @include mobile{
-        // margin-top: 20px;
-        width: 93px;
+    width: 93px;
         height: 34px;
         font-family: 'Poppins', sans-serif;
         font-size: 16px;
@@ -230,6 +228,16 @@ font-size: 14px;
         line-height: 1.35;
         color: $white-modal-text; 
     background-color: $accent-color-hover;
+    @include mobile{
+        // margin-top: 20px;
+    //     width: 93px;
+    //     height: 34px;
+    //     font-family: 'Poppins', sans-serif;
+    //     font-size: 16px;
+    //     font-weight: 700;
+    //     line-height: 1.35;
+    //     color: $white-modal-text; 
+    // background-color: $accent-color-hover;
 
     }
     

@@ -30,21 +30,33 @@ if (j==26) {
 sum += `<td class="table__item" data-value="${charsItems[j]}">${charsItems[j]}</td>`;
 if (j==12 || j==25 || j==38) sum +=`</tr>`;
 
+try{
 select.insertAdjacentHTML('beforeend',`<option class="select__item" data-value="${charsItems[j]}">${charsItems[j]}</option>`)
+}
+catch{
+    // console.log("not main page");
+}
+
+
 
 }
 if (tableTd) {
     tableTd.innerHTML = sum;
     tableTd.addEventListener('click',(ev)=>{
-        // console.log(ev.target.classList);
-        console.log(document.querySelectorAll('table__item'));
+
+        if(document.querySelector('.table__item--activ')!==null) {
+        document.querySelector('.table__item--activ').classList.remove('table__item--activ')}
         ev.target.classList.add('table__item--activ');
         sendRequest(ev.target.dataset['value']);
     });
 };
 
+try{
 select.addEventListener('change',(ev)=>sendRequest(ev.target['value']));
-
+}
+catch{
+    // console.log('not main page')
+}
 
 function sendRequest(ev){
     const letter = ev.toLowerCase();

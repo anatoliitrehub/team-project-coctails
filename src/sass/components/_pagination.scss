@@ -1,7 +1,7 @@
-.section-pagination{
-padding-bottom: 62px;
-}
 
+.section-pagination {
+  padding-bottom: 62px;
+}
 
 .pagination {
   display: flex;
@@ -13,16 +13,14 @@ padding-bottom: 62px;
 .pagination__btn {
   margin-top: 32px;
 
-    @media screen and (max-width: 767px) {
-      width: 32px;
-      height: 32px;
-    }
-    @media screen and (min-width: 768px){
-    
-        width: 40px;
-        height: 40px;
-    }
-    
+  @media screen and (max-width: 767px) {
+    width: 32px;
+    height: 32px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 40px;
+    height: 40px;
+  }
 
   padding: 0;
 
@@ -44,16 +42,14 @@ padding-bottom: 62px;
 .pagination__btn--next {
   margin-top: 32px;
 
-    @media screen and (max-width: 767px) {
-        width: 32px;
-        height: 32px;
-      }
-      @media screen and (min-width: 768px){
-      
-          width: 60px;
-          height: 40px;
-      }
-      
+  @media screen and (max-width: 767px) {
+    width: 32px;
+    height: 32px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 60px;
+    height: 40px;
+  }
 
   border-radius: 4px;
   border: 1px solid $basic-white;
@@ -74,3 +70,5 @@ padding-bottom: 62px;
   color: $basic-white;
   border: none;
 }
+
+

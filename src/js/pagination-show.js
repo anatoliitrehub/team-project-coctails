@@ -1,9 +1,11 @@
 import { galleryMarkUp } from './markup';
 import { pagination } from './pagination';
 import { addOnLearnMoreClick } from './markup';
+import { markupNotRequest } from './markup-bad-request';
 
 const paginationEl = document.querySelector('.pagination');
 const galleryEl = document.querySelector('.gallery__list');
+const galleryTitle = document.querySelector('.gallerry__title-main-wrepper');
 
 let copyArr = [];
 let activePage = 1;
@@ -11,13 +13,25 @@ let itemsPerPage;
 let totalBtn;
 
 function renderPagination({ drinks }) {
-  showPage(drinks);
+  let filteredArray;
+
+  try {
+    filteredArray = drinks.filter(item => item !== null);
+    galleryTitle.innerHTML = `<h2 class="gallery__title">Searching results</h2>`;
+  } catch {
+    console.log(drinks);
+    galleryTitle.innerHTML = `<h2 class="gallery__title">Sorry, we didn't find any cocktail for you</h2>`;
+    galleryEl.innerHTML = markupNotRequest();
+    paginationEl.replaceChildren();
+    return;
+  }
+
+  showPage(filteredArray);
   copyArr = [...drinks];
 }
 
 function screenWidthFull() {
   const screenWidth = window.innerWidth;
- 
 
   if (screenWidth < 768) {
     itemsPerPage = 3;
@@ -31,7 +45,6 @@ function screenWidthFull() {
   }
 }
 
-
 function showPage(items, currentPage = 1) {
   screenWidthFull();
   const startIndex = (currentPage - 1) * itemsPerPage;
@@ -42,7 +55,7 @@ function showPage(items, currentPage = 1) {
 
   galleryEl.replaceChildren();
   galleryEl.insertAdjacentHTML('beforeend', galleryMarkUp(pageItems));
-  addOnLearnMoreClick(pageItems)
+  // addOnLearnMoreClick(pageItems)
 
   paginationEl.replaceChildren();
 
@@ -113,9 +126,12 @@ function prevPageActive(event) {
   showPage(copyArr, activePage);
 }
 
-paginationEl.addEventListener('click', nextPageActive);
-paginationEl.addEventListener('click', prevPageActive);
-paginationEl.addEventListener('click', clickHandler);
+if (paginationEl) {
+  paginationEl.addEventListener('click', nextPageActive);
+  paginationEl.addEventListener('click', prevPageActive);
+  paginationEl.addEventListener('click', clickHandler);
+}
+
 window.addEventListener('resize', screenWidthFull);
 
 export { renderPagination };
