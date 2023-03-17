@@ -94,23 +94,23 @@ function onSearch(event) {
 
         
      }else{
-        // console.log('done cocktails ')
-        // console.log(event.target.name.value.trim())
        
         fetchCocktails.fetchCocktailsByFirstName(event.target.name.value.trim()).then(res => {
-            if (!res.data.drinks) {
-                galleryTitle.innerHTML = `<h2 class="gallery__title">Sorry, we didn't find any cocktail for you</h2>`;
-            //    galleryListEl.innerHTML = markupNotRequest();
-            //    paginationEl.replaceChildren();
-               event.target.name.value = '';
-            return;
-            }
-            galleryTitle.innerHTML = `<h2 class="gallery__title">Searching results</h2>`;
+            // if (!res.data.drinks) {
+            //     galleryTitle.innerHTML = `<h2 class="gallery__title">Sorry, we didn't find any cocktail for you</h2>`;
+            // //    galleryListEl.innerHTML = markupNotRequest();
+            // //    paginationEl.replaceChildren();
+            //    event.target.name.value = '';
+            
+            // }
+            // galleryTitle.innerHTML = `<h2 class="gallery__title">Searching results</h2>`;
             renderPagination(res.data);
             event.target.name.value = '';
             window.scrollTo({
             top: 630
-         })
+            })
+            if(document.querySelector('.table__item--activ')!==null) {
+            document.querySelector('.table__item--activ').classList.remove('table__item--activ')}
     })
     }
 }
@@ -119,12 +119,11 @@ function onSearchMobileMenu(event) {
     
     fetchCocktails.fetchCocktailsByFirstName(event.target.name.value.trim()).then(res => {
             console.log(res)
-            if (!res.data.drinks) {
-            // galleryListEl.innerHTML = markupNotRequest();
-            // paginationEl.replaceChildren();
-            event.target.name.value = '';
-            return;
-            }
+            // if (!res.data.drinks) {
+            // // galleryListEl.innerHTML = markupNotRequest();
+            // // paginationEl.replaceChildren();
+            // event.target.name.value = '';
+            // }
         
             renderPagination(res.data);
             event.target.name.value = '';
@@ -137,23 +136,21 @@ function onSearchMobileMenu(event) {
 
 ////favcockt
 function searchFavoriteCockt(event) { 
-    event.target.name.value
-    console.log(event.target.name.value);
+
+    
     const data = localFavorites.getLocal("favcockt")
     console.log(data)
-    const resultSearch = data.filter(el => {
-     
-       return  el.strDrink.toLowerCase().includes(event.target.name.value)
-        
-     })
-    console.log(resultSearch)
-    const markupLi=galleryMarkUp(resultSearch);
-    const str = ` <ul class="gallery__list">${markupLi}</ul>`;
-   
-    sectionCockt.insertAdjacentHTML('beforeend',str)
-   
-    event.target.name.value = '';
+    const resultSearch = {
+        drinks: data.filter(el => {
+            return el.strDrink.toLowerCase().includes(event.target.name.value)
+        })
+    }
+    console.log(resultSearch.drinks.length)
+    if (resultSearch.drinks.length === 0) {
+        console.log('not founsd')
+    } else { renderPagination(resultSearch);}
     
+    event.target.name.value = '';
 }
 
 
