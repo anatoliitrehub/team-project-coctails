@@ -19,6 +19,7 @@ const currentThemeDarkMobileMenu = document.querySelector('.theme__list--mobile-
 const headerSearch = document.querySelector('.header__form--search');
 const headerMobileMenuSearch = document.querySelector('.header__mobile-menu-form--search');
 const galleryListEl = document.querySelector('.gallery__list');
+const galleryTitle=document.querySelector('.gallerry__title-main-wrepper')
 
 
 const fetchCocktails = new FetchCocktails();
@@ -91,12 +92,14 @@ function onSearch(event) {
         // console.log(event.target.name.value.trim())
        
         fetchCocktails.fetchCocktailsByFirstName(event.target.name.value.trim()).then(res => {
-           if (!res.data.drinks) {
+            if (!res.data.drinks) {
+                galleryTitle.innerHTML = `<h2 class="gallery__title">Sorry, we didn't find any cocktail for you</h2>`;
                galleryListEl.innerHTML = markupNotRequest();
                paginationEl.replaceChildren();
                event.target.name.value = '';
             return;
             }
+            galleryTitle.innerHTML = `<h2 class="gallery__title">Searching results</h2>`;
             renderPagination(res.data);
             event.target.name.value = '';
             window.scrollTo({
