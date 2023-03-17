@@ -4,7 +4,7 @@ import * as icons from '../images/icons.svg';
 import { showCocktailDetails } from './modalcocktails';
 
 export function galleryMarkUp(params) {
-  const galleryMarkUp = params.map(({strDrinkThumb, strDrink}, index) => {
+  const galleryMarkUp = params.map(({strDrinkThumb, strDrink, idDrink}, index) => {
       return `<li class="gallery__item">
       <div class="gallery__box">
         <img
@@ -22,10 +22,11 @@ export function galleryMarkUp(params) {
               class="gallery__figcaption--storage"
               data-favcoctail="add"
               data-favcoctail="remove"
+              name=${idDrink}
             >
-              Add to
-              <svg class="gallery__figcaption--icon">
-                <use href="${icons}#icon-heart"></use>
+            <span class="gallery__figcaption--text">Add to</span>
+            <svg class="gallery__figcaption--icon">
+                <use class="gallery__figcaption--svg" href="${icons}#icon-heart"></use>
               </svg>
             </button>
           </div>
