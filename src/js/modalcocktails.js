@@ -27,8 +27,9 @@ function onBackdropClick(event) {
     toggleModalWindow();
   }
 }
-
+let cocktailId = {};
 export function showCocktailDetails(cocktail) {
+  cocktailId = {...cocktail};
   elemRefs.title.textContent = cocktail.strDrink;
   elemRefs.cocktailImg.src = cocktail.strDrinkThumb;
 
@@ -70,20 +71,24 @@ export function showCocktailDetails(cocktail) {
   elemRefs.ingridList.insertAdjacentHTML('beforeend', str);
   elemRefs.instruction.textContent = cocktail.strInstructions;
 
-  elemRefs.addBtn.addEventListener('click', event => {
-    localFavorites.addLocal(FAV_COCKT_KEY, cocktail);
-    elemRefs.addBtn.classList.add('is-hidden-btn');
-    elemRefs.removeBtn.classList.remove('is-hidden-btn');
-  });
-
-  elemRefs.removeBtn.addEventListener('click', event => {
-    localFavorites.removeLocal(FAV_COCKT_KEY, cocktail);
-    elemRefs.removeBtn.classList.add('is-hidden-btn');
-    elemRefs.addBtn.classList.remove('is-hidden-btn');
-  });
-
   toggleModalWindow();
 }
+
+
+elemRefs.addBtn.addEventListener('click', event => {
+  localFavorites.addLocal(FAV_COCKT_KEY, cocktailId);
+  elemRefs.addBtn.classList.add('is-hidden-btn');
+  elemRefs.removeBtn.classList.remove('is-hidden-btn');
+});
+
+elemRefs.removeBtn.addEventListener('click', event => {
+  localFavorites.removeLocal(FAV_COCKT_KEY, cocktailId);
+  elemRefs.removeBtn.classList.add('is-hidden-btn');
+  elemRefs.addBtn.classList.remove('is-hidden-btn');
+});
+ 
+
+
 elemRefs.ingridList.addEventListener('click', event => {
   event.preventDefault();
 
