@@ -34,7 +34,7 @@ try{
 select.insertAdjacentHTML('beforeend',`<option class="select__item" data-value="${charsItems[j]}">${charsItems[j]}</option>`)
 }
 catch{
-    console.log("not main page");
+    // console.log("not main page");
 }
 
 
@@ -55,7 +55,7 @@ try{
 select.addEventListener('change',(ev)=>sendRequest(ev.target['value']));
 }
 catch{
-    console.log('not main page')
+    // console.log('not main page')
 }
 
 function sendRequest(ev){
