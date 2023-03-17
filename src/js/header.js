@@ -138,7 +138,6 @@ function onSearchMobileMenu(event) {
 ////favcockt
 function searchFavoriteCockt(event) { 
     event.target.name.value
-    
     console.log(event.target.name.value);
     const data = localFavorites.getLocal("favcockt")
     console.log(data)
