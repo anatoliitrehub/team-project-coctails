@@ -63,9 +63,16 @@
 .gallery__picture {
   padding: 0;
   width: 100%;
-  height: 395px;
+  height: 280px;
   border-top-left-radius: 2.5px;
   border-top-right-radius: 2.5px;
+
+  @include tablet {
+    height: 395px;
+  }
+  @include desktop {
+    height: 395px;
+  }
 }
 
 .gallery__figcaption {
