@@ -3,7 +3,8 @@ import { FetchCocktails } from './fetch';
 import { renderPagination } from './pagination-show';
 import { markupNotRequest } from './markup-bad-request';
 import { localFavorites } from './localfavorites';
-import { galleryMarkUp } from './markup';
+
+
 
 const paginationEl = document.querySelector('.pagination');
 const mobileMenuOpen = document.querySelector('.header__burger-menu');
@@ -20,9 +21,10 @@ const currentThemeLightMobileMenu = document.querySelector('.theme__list--mobile
 const currentThemeDarkMobileMenu = document.querySelector('.theme__list--mobile-menu-dark');
 const headerSearch = document.querySelector('.header__form--search');
 const headerMobileMenuSearch = document.querySelector('.header__mobile-menu-form--search');
-const galleryListEl = document.querySelector('.gallery__list');
-const galleryTitle = document.querySelector('.gallerry__title-main-wrepper')
-const sectionCockt= document.querySelector('.favorite-cocktails')
+const galleryList = document.querySelector('.gallery__list');
+const galleryTitle = document.querySelector('.gallery__title');
+
+const ingredientsTitle = document.querySelector('.ingredients__title');
 
 
 const fetchCocktails = new FetchCocktails();
@@ -90,17 +92,26 @@ function onSearch(event) {
 
     } else if (event.srcElement.ownerDocument.title === "Favorite ingredients") {
         console.log('done Favorite ingredients ')
+        searchFavoriteIng(event);
         
 
         
      }else{
-       
+       const mainGalleryTitle = document.querySelector('.gallerry__title-main-wrepper .gallery__title');
         fetchCocktails.fetchCocktailsByFirstName(event.target.name.value.trim()).then(res => {
-            renderPagination(res.data);
+            if (res.data.drinks === null) {
+                
+                mainGalleryTitle.textContent = `Sorry, we didn\'t find any cocktail for you`;
+                galleryList.innerHTML = markupNotRequest();
+            } else { 
+                mainGalleryTitle.textContent = `Searching results`;
+                 renderPagination(res.data);
+            }
             event.target.name.value = '';
-            window.scrollTo({
-            top: 630
-            })
+           window.scrollTo({
+                top: 630
+                })
+            
             if(document.querySelector('.table__item--activ')!==null) {
             document.querySelector('.table__item--activ').classList.remove('table__item--activ')}
     })
@@ -132,14 +143,45 @@ function searchFavoriteCockt(event) {
         drinks: data.filter(el => {
             return el.strDrink.toLowerCase().includes(event.target.name.value.toLowerCase())
         })
+        
     }
+    console.log(resultSearch.drinks.length)
+    if (resultSearch.drinks.length === 0) {
+        galleryTitle.textContent='Sorry, we didn\'t find any cocktail for you';
+        galleryList.innerHTML = markupNotRequest();
+    } else { renderPagination(resultSearch);}
    
-    renderPagination(resultSearch);
+    
     event.target.name.value = '';
 }
 
 
-
+function searchFavoriteIng(event) { 
+    const data = localFavorites.getLocal("favingr");
+    const resultSearch = data.filter(el => {    
+            return el.strIngredient.toLowerCase().includes(event.target.name.value.toLowerCase())
+    })
+    const ingredientsItem = document.querySelectorAll('.ingredients__item');
+    ingredientsItem.forEach(el =>
+        el.style.display = 'flex'
+    );
+    if (resultSearch.length === 0) {
+        ingredientsTitle.textContent = 'Sorry, we didn\'t find any cocktail for you';
+        // ingredientsList.innerHTML = markupNotRequest();
+    } else {
+        console.log(ingredientsItem)
+        ingredientsItem.forEach(el => {
+            
+            if (!el.firstElementChild.textContent.toLowerCase().includes(event.target.name.value.toLowerCase())){
+                console.log(el.firstElementChild.textContent)
+                el.style.display = 'none';
+            }
+        })
+        ingredientsTitle.textContent = 'Favorite ingredients';
+    }
+  
+    event.target.name.value = '';
+}
 
 // listeners
 mobileMenuOpen.addEventListener('click', onToggle)
