@@ -6,7 +6,7 @@ import { addLikeClick } from './like-add-remove';
 
 const paginationEl = document.querySelector('.pagination');
 const galleryEl = document.querySelector('.gallery__list');
-const galleryTitle = document.querySelector('.gallerry__title-main-wrepper');
+const galleryTitle = document.querySelector('.gallery__title');
 
 let copyArr = [];
 let activePage = 1;
@@ -18,7 +18,7 @@ function renderPagination({ drinks }) {
 
   try {
     filteredArray = drinks.filter(item => item !== null);
-    // galleryTitle.innerHTML = `<h2 class="gallery__title">Searching results</h2>`;
+    // galleryTitle.textContent = `Searching results`;
   } catch {
     console.log(drinks);
     galleryTitle.textContent = `Sorry, we didn\'t find any cocktail for you`;
