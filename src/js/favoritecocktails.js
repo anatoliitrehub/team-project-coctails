@@ -5,26 +5,38 @@ import { modalcocktails } from './modalcocktails';
 import { modalingredients } from './modalingredients';
 import { renderPagination } from './pagination-show'
 
+const favCoctNothing = document.querySelector('.favorite-cocktails__text');
 
  function favoritecocktails(){
+    
     const data = {
         drinks:localFavorites.getLocal('favcockt')
     };
-    // console.log(data.drinks.length)
-try{
+    let localCounter = data.drinks.length;
+
+    try{
     if(data.drinks.length !== 0){
-    // console.log (data)
-        // document.querySelector('.favorite-cocktails__text').innerHTML = '';
-        document.querySelector('.favorite-cocktails__text').classList.add('is-hidden-card')
+    favCoctNothing.textContent = '';
     renderPagination(data);
     }
     else {
-        document.querySelector('.favorite-cocktails__text').classList.remove('is-hidden-card');
+        favCoctNothing.textContent = `You haven't added any favorite cocktails yet`;
     }
 
-    // document.querySelector('.gallery__list').innerHTML = data
+    }
+    catch{}
+let galList = document.querySelector('.gallery__list')
+galList.addEventListener('click',ev=>{
+    if(ev.target.classList.contains('gallery__figcaption--storage')){
+    ev.target.closest('.gallery__item').classList.add('is-hidden-card');
+    localCounter--
 }
-catch{}
+    if(!localCounter){
+        favCoctNothing.textContent = `You haven't added any favorite cocktails yet`;}
+    
+
+})
+
 }
 
 export default favoritecocktails()
