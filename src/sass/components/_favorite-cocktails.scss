@@ -1,3 +1,6 @@
+.favorite-cocktails{
+  padding-top: 60px;
+}
 
 .favorite-cocktails__title {
    @include font (600, 22px, calc(42 / 22));
@@ -31,7 +34,7 @@
     color: var(--black);
     text-align: center;
     max-width: 239px;
-    margin-top: 60px;
+    // margin-top: 60px;
     margin-left: auto;
     margin-right: auto;
 
