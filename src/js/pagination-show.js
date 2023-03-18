@@ -2,6 +2,7 @@ import { galleryMarkUp } from './markup';
 import { pagination } from './pagination';
 import { addOnLearnMoreClick } from './markup';
 import { markupNotRequest } from './markup-bad-request';
+import { addLikeClick } from './like-add-remove';
 
 const paginationEl = document.querySelector('.pagination');
 const galleryEl = document.querySelector('.gallery__list');
@@ -55,7 +56,8 @@ function showPage(items, currentPage = 1) {
 
   galleryEl.replaceChildren();
   galleryEl.insertAdjacentHTML('beforeend', galleryMarkUp(pageItems));
-  // addOnLearnMoreClick(pageItems)
+  addOnLearnMoreClick(pageItems)
+  addLikeClick(pageItems)
 
   paginationEl.replaceChildren();
 
