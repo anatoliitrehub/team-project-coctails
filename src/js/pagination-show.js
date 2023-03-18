@@ -18,10 +18,10 @@ function renderPagination({ drinks }) {
 
   try {
     filteredArray = drinks.filter(item => item !== null);
-    galleryTitle.innerHTML = `<h2 class="gallery__title">Searching results</h2>`;
+    // galleryTitle.innerHTML = `<h2 class="gallery__title">Searching results</h2>`;
   } catch {
     console.log(drinks);
-    galleryTitle.innerHTML = `<h2 class="gallery__title">Sorry, we didn't find any cocktail for you</h2>`;
+    galleryTitle.textContent = `Sorry, we didn\'t find any cocktail for you`;
     galleryEl.innerHTML = markupNotRequest();
     paginationEl.replaceChildren();
     return;

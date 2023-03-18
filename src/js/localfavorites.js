@@ -11,7 +11,7 @@ const localFavorites = {
         let loc = (localStorage.getItem(key)) ? JSON.parse(localStorage.getItem(key)) : [];
         loc.push(obj);
         localStorage.setItem(key,JSON.stringify(loc));
-        Notiflix.Notify.success('Item add to favorites successfully');
+        Notiflix.Notify.success(' 😍 Item was added successfully!');
         return true;
     },
 
@@ -26,20 +26,20 @@ const localFavorites = {
                 tempCoc = lococ.filter(item => item.idDrink!==obj.idDrink);
                 localStorage.setItem("favcockt",[]);
                 localStorage.setItem("favcockt",JSON.stringify(tempCoc));
-                Notiflix.Notify.success('Item remove from favorites successfully');
+                Notiflix.Notify.success(' ☹️ Cocktail was removed successfully!');
             break;
 
             case "favingr":
                 tempIng = locin.filter(item => item.idIngredient!==obj.idIngredient);
                 localStorage.setItem("favingr",[]);
                 localStorage.setItem("favingr",JSON.stringify(tempIng));
-                Notiflix.Notify.success('Item remove from favorites successfully');
+                Notiflix.Notify.success(' ☹️ Ingredient was removed successfully!');
                 console.log("remove ing")
 
             break;
 
             default:
-                Notiflix.Notify.info('Nothing to remove');
+                Notiflix.Notify.info(' 😕 Nothing to remove');
  
         }
     }
