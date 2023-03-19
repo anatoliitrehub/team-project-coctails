@@ -7,8 +7,13 @@ import {localFavorites} from './localfavorites';
 
 function hero(){
     const tableTd = document.querySelector('.contain__table');
-    const select = document.querySelector('.contain__select');
+    const select = document.querySelector('.select__list');
     const galleryTitle = document.querySelector('.gallery__title');
+    const selectDown = document.querySelector('.js-sel-first');
+    const selectDrop = document.querySelector('.js-sel-sec');
+    const selectTitle = document.querySelector('.js-sel-title');
+    const selectMain = document.querySelector('.select__wrapper--first');
+
     const charsItems = [];                  // contsiner all chars
     for (let i=65; i<91; i++){              // letters
     charsItems.push(String.fromCharCode(i))
@@ -32,7 +37,7 @@ sum += `<td class="table__item" data-value="${charsItems[j]}">${charsItems[j]}</
 if (j==12 || j==25 || j==38) sum +=`</tr>`;
 
 try{
-select.insertAdjacentHTML('beforeend',`<option class="select__item" data-value="${charsItems[j]}">${charsItems[j]}</option>`)
+select.insertAdjacentHTML('beforeend',`<li class="select__item" data-value="${charsItems[j]}">${charsItems[j]}</option>`);
 }
 catch{
     // console.log("not main page");
@@ -52,7 +57,16 @@ if (tableTd) {
 };
 
 try{
-select.addEventListener('change',(ev)=>sendRequest(ev.target['value']));
+selectDown.addEventListener('click',(ev)=>{
+    selectDrop.classList.toggle('is-hidden-card')
+    selectMain.classList.toggle('hero__orange');
+});
+select.addEventListener('click',(ev)=>{
+    selectTitle.textContent = ev.target.dataset['value'];
+    selectDrop.classList.toggle('is-hidden-card');
+    selectMain.classList.toggle('hero__orange');
+    sendRequest(ev.target.dataset['value'])}
+    );
 }
 catch{
     // console.log('not main page')
