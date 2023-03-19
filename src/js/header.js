@@ -85,6 +85,7 @@ function onTheme(event) {
 }
 function onSearch(event) { 
     event.preventDefault();
+    if (event.target.name.value === '') return;
    
     if (document.title === "Favorite cocktails") {
         document.title
@@ -101,7 +102,6 @@ function onSearch(event) {
        const mainGalleryTitle = document.querySelector('.gallerry__title-main-wrepper .gallery__title');
         fetchCocktails.fetchCocktailsByFirstName(event.target.name.value.trim()).then(res => {
             if (res.data.drinks === null) {
-                
                 mainGalleryTitle.textContent = `Sorry, we didn\'t find any cocktail for you`;
                 galleryList.innerHTML = markupNotRequest();
             } else { 
