@@ -13,6 +13,7 @@ const elemRefs = {
   cocktailImg: document.querySelector('.cocktail__photo'),
   ingridList: document.querySelector('.ingredients-list'),
   instruction: document.querySelector('.instraction__descr'),
+  favCoctNothing: document.querySelector('.favorite-cocktails__text'),
 };
 
 const fetchCocktails = new FetchCocktails();
@@ -32,6 +33,10 @@ elemRefs.addBtn.addEventListener('click', event => {
     let cardBtn = document.querySelector(cocktailIdBtn);
     cardBtn.firstElementChild.textContent = 'Remove';
     cardBtn.lastElementChild.style.fill = '#fd5103';
+    if (document.querySelector('.gallery__title').textContent === 'Favorite cocktails') {
+      cardBtn.closest('.gallery__item').classList.remove('is-hidden-card');
+    };
+
     return;
   }else {
     localFavorites.removeLocal(FAV_COCKT_KEY, cocktailDetail);
@@ -40,6 +45,12 @@ elemRefs.addBtn.addEventListener('click', event => {
     let cardBtn = document.querySelector(cocktailIdBtn);
     cardBtn.firstElementChild.textContent = 'Add to';
     cardBtn.lastElementChild.style.fill = 'var(--white-modal-text)';
+     
+    if (document.querySelector('.gallery__title').textContent === 'Favorite cocktails') {
+      cardBtn.closest('.gallery__item').classList.add('is-hidden-card');
+      (!localFavorites.getLocal(FAV_COCKT_KEY).length)?elemRefs.favCoctNothing.textContent = `You haven't added any favorite cocktails yet`:null;
+    };
+
   }
 });
 // лісенер на інгрідієнтах 
