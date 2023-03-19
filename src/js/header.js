@@ -85,13 +85,14 @@ function onTheme(event) {
 }
 function onSearch(event) { 
     event.preventDefault();
-    // console.dir(event.srcElement.ownerDocument.title);
-    if(event.srcElement.ownerDocument.title==="Favorite cocktails"){
-        console.log('done Favorite cocktails ')
+   
+    if (document.title === "Favorite cocktails") {
+        document.title
+        
         searchFavoriteCockt(event);
 
-    } else if (event.srcElement.ownerDocument.title === "Favorite ingredients") {
-        console.log('done Favorite ingredients ')
+    } else if (document.title === "Favorite ingredients") {
+       
         searchFavoriteIng(event);
         
 
@@ -121,8 +122,7 @@ function onSearchMobileMenu(event) {
     event.preventDefault();
     
     fetchCocktails.fetchCocktailsByFirstName(event.target.name.value.trim()).then(res => {
-            console.log(res)
-        
+           
             renderPagination(res.data);
             event.target.name.value = '';
     })
@@ -138,18 +138,21 @@ function searchFavoriteCockt(event) {
     
     const data = localFavorites.getLocal("favcockt")
 
-    console.log('улюблені коктейль з локал сторедж', data)
+    
     const resultSearch = {
         drinks: data.filter(el => {
             return el.strDrink.toLowerCase().includes(event.target.name.value.toLowerCase())
         })
         
     }
-    console.log(resultSearch.drinks.length)
+   
     if (resultSearch.drinks.length === 0) {
         galleryTitle.textContent='Sorry, we didn\'t find any cocktail for you';
         galleryList.innerHTML = markupNotRequest();
-    } else { renderPagination(resultSearch);}
+    } else {
+        galleryTitle.textContent='Favorite cocktails';
+        renderPagination(resultSearch);
+    }
    
     
     event.target.name.value = '';
@@ -166,14 +169,14 @@ function searchFavoriteIng(event) {
         el.style.display = 'flex'
     );
     if (resultSearch.length === 0) {
-        ingredientsTitle.textContent = 'Sorry, we didn\'t find any cocktail for you';
+        ingredientsTitle.textContent = 'Sorry, we didn\'t find any ingredients for you';
         // ingredientsList.innerHTML = markupNotRequest();
     } else {
-        console.log(ingredientsItem)
+    
         ingredientsItem.forEach(el => {
             
             if (!el.firstElementChild.textContent.toLowerCase().includes(event.target.name.value.toLowerCase())){
-                console.log(el.firstElementChild.textContent)
+                
                 el.style.display = 'none';
             }
         })
