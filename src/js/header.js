@@ -88,7 +88,7 @@ function onSearch(event) {
     if (event.target.name.value === '') return;
    
     if (document.title === "Favorite cocktails") {
-        document.title
+        
         
         searchFavoriteCockt(event);
 
