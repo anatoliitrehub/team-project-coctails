@@ -42,7 +42,7 @@ export function addOnLearnMoreClick(drinks) {
     document.querySelectorAll('.js-learn-more').forEach(elem => {
       elem.addEventListener('click', e => {
         const index = Number(e.target.dataset.index);
-        console.log(index, drinks[index]);
+        // console.log(index, drinks[index]);
         showCocktailDetails(drinks[index]);
       });
     });

@@ -42,11 +42,12 @@ catch{
 if (tableTd) {
     tableTd.innerHTML = sum;
     tableTd.addEventListener('click',(ev)=>{
-
-        if(document.querySelector('.table__item--activ')!==null) {
-        document.querySelector('.table__item--activ').classList.remove('table__item--activ')}
-        ev.target.classList.add('table__item--activ');
-        sendRequest(ev.target.dataset['value']);
+        if(ev.target.dataset['value']) {
+                if(document.querySelector('.table__item--activ')) {
+                document.querySelector('.table__item--activ').classList.remove('table__item--activ')}
+                ev.target.classList.add('table__item--activ');
+                sendRequest(ev.target.dataset['value']);
+        }
     });
 };
 
