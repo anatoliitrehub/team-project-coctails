@@ -23,6 +23,7 @@ const headerSearch = document.querySelector('.header__form--search');
 const headerMobileMenuSearch = document.querySelector('.header__mobile-menu-form--search');
 const galleryList = document.querySelector('.gallery__list');
 const galleryTitle = document.querySelector('.gallery__title');
+const favCoctNothing = document.querySelector('.favorite-cocktails__text');
 
 const ingredientsTitle = document.querySelector('.ingredients__title');
 
@@ -104,6 +105,8 @@ function onSearch(event) {
             if (res.data.drinks === null) {
                 mainGalleryTitle.textContent = `Sorry, we didn\'t find any cocktail for you`;
                 galleryList.innerHTML = markupNotRequest();
+                paginationEl.innerHTML = '';
+
             } else { 
                 mainGalleryTitle.textContent = `Searching results`;
                  renderPagination(res.data);
@@ -149,6 +152,9 @@ function searchFavoriteCockt(event) {
     if (resultSearch.drinks.length === 0) {
         galleryTitle.textContent='Sorry, we didn\'t find any cocktail for you';
         galleryList.innerHTML = markupNotRequest();
+        
+
+    favCoctNothing.textContent = '';
     } else {
         galleryTitle.textContent='Favorite cocktails';
         renderPagination(resultSearch);

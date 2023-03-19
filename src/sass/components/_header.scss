@@ -28,7 +28,7 @@ body {
   //   justify-content: space-between;
   //   gap: auto;
   @include tablet {
-    margin-right: 190px;
+    margin-right: 120px;
   }
   @include desktop {
     display: flex;
@@ -48,6 +48,32 @@ body {
     width: 156px;
     height: 43px;
   }
+}
+.authorization__wrapper {
+  display: none;
+  @include tablet {
+    display: block;
+    margin-right: 40px;
+  }
+  @include desktop {
+    display: block;
+    margin-right: 42px;
+  }
+}
+.authorization__btn {
+  cursor: pointer;
+  background-color: inherit;
+  border: none;
+  outline: none;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+.authorization__icon {
+  width: 34px;
+  height: 34px;
 }
 .header__burger-wrapper {
   //   position: relative;
@@ -103,7 +129,7 @@ body {
   }
   @include desktop {
     display: block;
-    margin-right: 172px;
+    margin-right: 90px;
   }
 }
 
