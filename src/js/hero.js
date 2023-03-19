@@ -8,6 +8,7 @@ import {localFavorites} from './localfavorites';
 function hero(){
     const tableTd = document.querySelector('.contain__table');
     const select = document.querySelector('.contain__select');
+    const galleryTitle = document.querySelector('.gallery__title');
     const charsItems = [];                  // contsiner all chars
     for (let i=65; i<91; i++){              // letters
     charsItems.push(String.fromCharCode(i))
@@ -36,8 +37,6 @@ select.insertAdjacentHTML('beforeend',`<option class="select__item" data-value="
 catch{
     // console.log("not main page");
 }
-
-
 
 }
 if (tableTd) {
@@ -68,20 +67,10 @@ function sendRequest(ev){
     let drinks = [];
     fetchCocktails.fetchCocktailsByFirstLetter(letter).then(res => {
         drinks = res.data.drinks;
-        // if (res.data.drinks) {
-            renderPagination(res.data);
-        //   galleryListEl.innerHTML = galleryMarkUp(drinks);
-        //   document.querySelectorAll('.js-learn-more').forEach(elem => {
-        //     elem.addEventListener('click', e => {
-        //       const index = Number(e.target.dataset.index);
-        //       console.log(index, drinks[index]);
-        //       showCocktailDetails(drinks[index]);
-        //     });
-        //   });
-        }
-        // else galleryListEl.innerHTML = galleryMarkUp(res.data.drinks); //if full obj we return page "It is Nothing.."
+            galleryTitle.textContent = `Searching results`;
 
-    //   }
+            renderPagination(res.data);
+        }
       )
       .catch(e=>console.log(e));
 }
