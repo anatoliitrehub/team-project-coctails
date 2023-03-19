@@ -56,22 +56,6 @@
   line-height: 0;
 }
 
-@media screen and (min-width: 480px) {
-  .gallery__list {
-    width: 480px;
-  }
-}
-@media screen and (min-width: 768px) {
-  .gallery__list {
-    width: 768px;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .gallery__list {
-    width: 1200px;
-  }
-}
-
 .gallery__item {
   flex-basis: calc((100% - 2 * 30px) / 3);
 
@@ -244,8 +228,8 @@
 }
 
 .gallery__figcaption--storage:hover .gallery__figcaption--icon {
-  fill: var(--orange-modal-line);
-  transform: scale(1.03);
+  transform: scale(1.2);
+  fill: #fd5103;
 }
 
 .gallery__figcaption--icon {
