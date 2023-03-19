@@ -105,6 +105,8 @@ function onSearch(event) {
             if (res.data.drinks === null) {
                 mainGalleryTitle.textContent = `Sorry, we didn\'t find any cocktail for you`;
                 galleryList.innerHTML = markupNotRequest();
+                paginationEl.innerHTML = '';
+
             } else { 
                 mainGalleryTitle.textContent = `Searching results`;
                  renderPagination(res.data);
