@@ -1,4 +1,5 @@
 import { localFavorites } from './localfavorites';
+const favCoctNothing = document.querySelector('.favorite-cocktails__text');
 
 const FAV_COCKTAIL_KEY = 'favcockt';
 
@@ -29,7 +30,11 @@ export function addLikeClick(drinks) {
           '.gallery__figcaption--storage'
         ).lastElementChild.style.fill = 'var(--white-modal-text)';
         localFavorites.removeLocal(FAV_COCKTAIL_KEY, objDrink);
-      }
+          if (document.querySelector('.gallery__title').textContent === 'Favorite cocktails') {
+          target.closest('.gallery__item').classList.add('is-hidden-card');
+          (!localFavorites.getLocal(FAV_COCKTAIL_KEY).length)?favCoctNothing.textContent = `You haven't added any favorite cocktails yet`:null;
+          };
+      };
     });
   });
 }
