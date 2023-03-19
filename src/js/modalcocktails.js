@@ -35,6 +35,7 @@ elemRefs.addBtn.addEventListener('click', event => {
     cardBtn.lastElementChild.style.fill = '#fd5103';
     if (document.querySelector('.gallery__title').textContent === 'Favorite cocktails') {
       cardBtn.closest('.gallery__item').classList.remove('is-hidden-card');
+      (localFavorites.getLocal(FAV_COCKT_KEY).length)?elemRefs.favCoctNothing.textContent = ``:null;
     };
 
     return;
