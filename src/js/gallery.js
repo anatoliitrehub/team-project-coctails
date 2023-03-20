@@ -47,7 +47,6 @@ Promise.all(arr).then(result => {
   );
 
   cocktailTitleEl.forEach(el => {
-    console.log(el.textContent);
     if (el.textContent.length < 13) {
       return;
     }
