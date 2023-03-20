@@ -124,14 +124,40 @@ function onSearch(event) {
 function onSearchMobileMenu(event) { 
     event.preventDefault();
     
-    fetchCocktails.fetchCocktailsByFirstName(event.target.name.value.trim()).then(res => {
+    // fetchCocktails.fetchCocktailsByFirstName(event.target.name.value.trim()).then(res => {
            
-            renderPagination(res.data);
-            event.target.name.value = '';
-    })
+    //         renderPagination(res.data);
+    //         event.target.name.value = '';
+    // })
+    if (event.target.name.value === '') return;
+   
+    if (document.title === "Favorite cocktails") {
+        
+        
+        searchFavoriteCockt(event);
+
+    } else if (document.title === "Favorite ingredients") {
+       
+        searchFavoriteIng(event);
+        
+
+        
+     }else{
+       const mainGalleryTitle = document.querySelector('.gallerry__title-main-wrepper .gallery__title');
+        fetchCocktails.fetchCocktailsByFirstName(event.target.name.value.trim()).then(res => {
+            if (res.data.drinks === null) {
+                mainGalleryTitle.textContent = `Sorry, we didn\'t find any cocktail for you`;
+                galleryList.innerHTML = markupNotRequest();
+                paginationEl.innerHTML = '';
+
+            } else {
+                mainGalleryTitle.textContent = `Searching results`;
+                renderPagination(res.data);
+            }
+        })
     window.scrollTo({
         top: 780
-    })
+    })}
     onToggle();
 }
 
@@ -177,6 +203,9 @@ function searchFavoriteIng(event) {
     if (resultSearch.length === 0) {
         ingredientsTitle.textContent = 'Sorry, we didn\'t find any ingredients for you';
         // ingredientsList.innerHTML = markupNotRequest();
+         ingredientsItem.forEach(el =>
+        el.style.display = 'none'
+    );
     } else {
     
         ingredientsItem.forEach(el => {
