@@ -128,7 +128,7 @@
     letter-spacing: 0.02em;
     margin-bottom: 20px;
     color: $black;
-
+display: none;
 
     @include mobile{
         // margin-bottom: 20px;
@@ -136,6 +136,7 @@
     }
     
     @include tablet{
+        display: block;
        margin-bottom: 40px;
        width:324px;     
        color: var(--black); 
@@ -143,6 +144,7 @@
     }
     
     @include desktop{
+        display: block;
         margin-bottom: 40px;
         width:607px; 
         font-size: 18px;
@@ -220,43 +222,14 @@ font-size: 14px;
 }
 
 .contain__select{
-    width: 93px;
-        height: 34px;
+    width: 33%;
         font-family: 'Poppins', sans-serif;
         font-size: 16px;
         font-weight: 700;
         line-height: 1.35;
-    //     color: $white-modal-text; 
-    // background-color: $accent-color-hover;
-    background: transparent;
-    border-color: $accent-color-hover;
-    color: $accent-color-hover;
-    border-radius: 4px;
-    padding-left: 10px;
-    &:focus{
-        // background-color: $accent-color-hover;
-        color: $white-modal-text; 
-        background-color: $accent-color-hover;
-
-    }
-
-    &:active{
-        // background: transparent;
-        color:$grey;
-
-    }
 
     @include mobile{
-        // margin-top: 20px;
-    //     width: 93px;
-    //     height: 34px;
-    //     font-family: 'Poppins', sans-serif;
-    //     font-size: 16px;
-    //     font-weight: 700;
-    //     line-height: 1.35;
-    //     color: $white-modal-text; 
-    // background-color: $accent-color-hover;
-
+   
     }
     
     @include tablet{
@@ -268,25 +241,74 @@ font-size: 14px;
     } 
 }
 
+.select__wrapper--first{
+    height: 34px;
+    background: transparent;
+    border: 1px solid;
+    border-color: $accent-color-hover;
+    color: $accent-color-hover;
+    border-radius: 4px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 5px;
+    fill:$accent-color-hover;
+
+}
+
+.select__title{
+    padding-left: 10px;
+}
+
+.select__open{
+    width: 24px;
+    height: 24px;
+    fill: inherit;
+}
+
+.select__wrapper--sec{
+    top: 30px;
+height: 84px;
+overflow-y: scroll;
+border-radius: 4px;
+border: 1px solid;
+    border-color: $accent-color-hover;
+    color: $accent-color-hover;
+}
+
+.select__list{
+   
+    display: flex;
+    flex-direction: column;
+    
+    
+width: 100%;
+// padding-left: 10px;
+}
+
 .select__item{
         // margin-top: 20px;
+        padding: 6px 10px;
         font-family: 'Poppins', sans-serif;
-        font-size: 16px;
+        font-size: 10px;
         font-weight: 700;
-        line-height: 1.35;
-        color: $white-modal-text; 
+        line-height: 1.5;
+        color: $grey; 
         width:inherit;
-        // background: transparent;
 display: inline-block;
 
 &:focus, &:hover{
     color: $white-modal-text; 
-    // background: transparent;
+    background: $accent-color-hover;
 
 }
 
-&:active{
-    background: transparent;
-
 }
+
+.hero__orange{
+    background-color: $accent-color-hover;
+    color: $white-modal-text; 
+    fill: $white-modal-text; 
+
 }
