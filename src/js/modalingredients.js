@@ -80,3 +80,9 @@ function toggleFavorite() {
     localFavorites.addLocal(FAV_INGREDIENTS_KEY, currentIngredient);
   }
 }
+
+// const ingredientText = document.querySelector('.ingred__info');
+// ingredientText.classList.remove('.is hidden')
+// if (ingredientText === null) {
+//   ingredientText.textContent.add('.is-hidden');
+// }

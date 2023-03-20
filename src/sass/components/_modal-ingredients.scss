@@ -111,8 +111,16 @@
 .ingred__info {
   color: var(--grey-modal);
   @include font(400, 16px, 1.75);
-  height: 100px;
-  overflow: auto;
+  @include tablet {
+    height: 100px;
+    overflow: auto;
+  }
+
+  @include desktop {
+      height: 100px;
+        overflow: auto;
+   }
+  
 }
 
 .ingred__info-bold {
