@@ -8,7 +8,7 @@ export function galleryMarkUp(params) {
       return `<li class="gallery__item">
       <div class="gallery__box">
         <img
-          class="container gallery__picture"
+          class="gallery__picture"
           src=${strDrinkThumb}
           alt=${strDrink}
         />
