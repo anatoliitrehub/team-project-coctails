@@ -3,14 +3,11 @@
 import { galleryMarkUp, addOnLearnMoreClick } from './markup';
 import { FetchCocktails } from './fetch';
 import { showCocktailDetails } from './modalcocktails';
-import { localFavorites } from './localfavorites';
-import { showCocktailDetails } from './modalcocktails';
 import { addLikeClick } from './like-add-remove';
 
 const galleryListEl = document.querySelector('.gallery__list');
 const galleryTitle = document.querySelector('.gallery__title');
 
-const FAV_COCKTAIL_KEY = 'favcockt';
 
 const fetchCocktails = new FetchCocktails();
 const arr = [];
@@ -44,4 +41,16 @@ Promise.all(arr).then(result => {
   }
   addOnLearnMoreClick(drinks);
   addLikeClick(drinks);
+
+  const cocktailTitleEl = document.querySelectorAll(
+    '.gallery__figcaption--coctail'
+  );
+
+  cocktailTitleEl.forEach(el => {
+    if (el.textContent.length < 13) {
+      return;
+    }
+    const cocktailTitleShort = el.textContent.slice(0, 13);
+    el.textContent = cocktailTitleShort + '...';
+  });
 });

@@ -114,7 +114,7 @@
 }
 
 .gallery__figcaption--coctail {
-  @include font(900, 32px, calc(38 / 32));
+  @include font(900, 26px, calc(38 / 32));
   margin-bottom: 27px;
   color: var(--black);
 
