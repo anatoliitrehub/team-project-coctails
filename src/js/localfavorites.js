@@ -2,44 +2,43 @@
 import Notiflix from 'notiflix';
 
 const localFavorites = {
-
+    notify: Notiflix.Notify,
     getLocal(key){
         return (localStorage.getItem(key)) ? JSON.parse(localStorage.getItem(key)) : [];
     },
         
     addLocal(key,obj){
-        let loc = (localStorage.getItem(key)) ? JSON.parse(localStorage.getItem(key)) : [];
-        loc.push(obj);
-        localStorage.setItem(key,JSON.stringify(loc));
-        Notiflix.Notify.success(' 😍 Item was added successfully!');
-        return true;
+        let currentItem = (localStorage.getItem(key)) ? JSON.parse(localStorage.getItem(key)) : [];
+        currentItem.push(obj);
+        localStorage.setItem(key,JSON.stringify(currentItem));
+        this.notify.success(' 😍 Item was added successfully!');
+        // return true;
     },
 
     removeLocal(key,obj){
-        let lococ = (localStorage.getItem("favcockt")) ? JSON.parse(localStorage.getItem("favcockt")) : [];
-        let tempCoc = [];
-        let locin = (localStorage.getItem("favingr")) ? JSON.parse(localStorage.getItem("favingr")) : [];
-        let tempIng = [];
+        let currentCoc = (localStorage.getItem("favcockt")) ? JSON.parse(localStorage.getItem("favcockt")) : [];
+        let temporaryCoc = [];
+        let currentIng = (localStorage.getItem("favingr")) ? JSON.parse(localStorage.getItem("favingr")) : [];
+        let temporaryIng = [];
 
         switch (key){
             case "favcockt":
-                tempCoc = lococ.filter(item => item.idDrink!==obj.idDrink);
-                localStorage.setItem("favcockt",[]);
-                localStorage.setItem("favcockt",JSON.stringify(tempCoc));
-                Notiflix.Notify.success(' ☹️ Cocktail was removed successfully!');
+                temporaryCoc = currentCoc.filter(item => item.idDrink!==obj.idDrink);
+                // localStorage.setItem("favcockt",[]);
+                localStorage.setItem("favcockt",JSON.stringify(temporaryCoc));
+                this.notify.success(' ☹️ Cocktail was removed successfully!');
             break;
 
             case "favingr":
-                tempIng = locin.filter(item => item.idIngredient!==obj.idIngredient);
-                localStorage.setItem("favingr",[]);
-                localStorage.setItem("favingr",JSON.stringify(tempIng));
-                Notiflix.Notify.success(' ☹️ Ingredient was removed successfully!');
-                console.log("remove ing")
+                temporaryIng = currentIng.filter(item => item.idIngredient!==obj.idIngredient);
+                // localStorage.setItem("favingr",[]);
+                localStorage.setItem("favingr",JSON.stringify(temporaryIng));
+                this.notify.success(' ☹️ Ingredient was removed successfully!');
 
             break;
 
             default:
-                Notiflix.Notify.info(' 😕 Nothing to remove');
+                this.notify.info(' 😕 Nothing to remove');
  
         }
     }

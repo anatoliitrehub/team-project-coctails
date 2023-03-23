@@ -1,11 +1,12 @@
 "use strict";
 import { localFavorites } from './localfavorites';
-import { header } from './header';
-import { modalcocktails } from './modalcocktails';
-import { modalingredients } from './modalingredients';
 import { renderPagination } from './pagination-show'
 
-const favCoctNothing = document.querySelector('.favorite-cocktails__text');
+// import { header } from './header';
+// import { modalcocktails } from './modalcocktails';
+// import { modalingredients } from './modalingredients';
+
+const searchCocResult = document.querySelector('.favorite-cocktails__text');
 
  function favoritecocktails(){
     
@@ -15,16 +16,18 @@ const favCoctNothing = document.querySelector('.favorite-cocktails__text');
     let localCounter = data.drinks.length;
 
     try{
-    if(data.drinks.length !== 0){
-    favCoctNothing.textContent = '';
+    if(data.drinks.length){
+    searchCocResult.textContent = '';
     renderPagination(data);
     }
     else {
-        favCoctNothing.textContent = `You haven't added any favorite cocktails yet`;
+        searchCocResult.textContent = `You haven't added any favorite cocktails yet`;
     }
 
     }
-    catch{}
+    catch{
+        
+    }
 // let galList = document.querySelector('.gallery__list')
 // galList.addEventListener('change',ev=>{
 //     console.log(ev.target)
