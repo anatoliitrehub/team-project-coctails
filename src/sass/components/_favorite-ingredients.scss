@@ -1,0 +1,208 @@
+.ingredients {
+  padding-top: 60px;
+
+  &__title {
+    margin-bottom: 60px;
+    text-align: center;
+    color: var(--black);
+    @include font(600, 22px, 1.91);
+
+    @include tablet {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 1.2;
+    }
+
+    @include desktop {
+      font-weight: 700;
+      font-size: 48px;
+      line-height: 1.5;
+    }
+  }
+
+  &__text {
+    text-align: center;
+    color: var(--black);
+    @include font(400, 20px, 3);
+
+    @include tablet {
+      font-size: 24px;
+      line-height: 2.5;
+    }
+
+    @include desktop {
+      font-size: 32px;
+      line-height: 2.25;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    @include tablet {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    @include desktop {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+
+  & &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    // width: 280px;
+    height: 177px;
+    padding: 20px;
+
+    border: 1px solid $orange;
+    border-radius: 4px;
+
+    @include tablet {
+      height: 205px;
+      flex-basis: calc(100% / 2 - 15px);
+    }
+
+    @include desktop {
+      height: 221px;
+      flex-basis: calc(100% / 3 - 15px);
+    }
+  }
+
+  &__name {
+    color: var(--black);
+    font-family: 'Roboto';
+    @include font(900, 26px, 1.62);
+
+    @include tablet {
+      font-size: 28px;
+      line-height: 1.2;
+    }
+
+    @include desktop {
+      font-size: 32px;
+      line-height: 1.2;
+    }
+  }
+
+  &__type {
+    color: var(--grey-modal);
+
+    text-transform: uppercase;
+    @include font(600, 14px, 1.5);
+
+    @include tablet {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    @include desktop {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 22px;
+    height: 39px;
+
+    @include tablet {
+      gap: 12px;
+      height: 48px;
+    }
+
+    @include desktop {
+      gap: 16px;
+      height: 48px;
+    }
+  }
+
+  &__learn-more {
+    flex-grow: 1.75;
+    border-radius: 4px;
+    border-color: inherit;
+    border: none;
+
+    color: $basic-white-text;
+    background: $accent-color;
+
+    letter-spacing: 0.02em;
+    @include font(400, 14px, 1.71);
+
+    @include tablet {
+      font-size: 20px;
+      line-height: 1.2;
+    }
+
+    @include desktop {
+      font-size: 20px;
+      line-height: 1.2;
+    }
+  }
+
+  &__learn-more:hover,
+  &__learn-more:focus {
+    border: 1px solid $orange;
+    background-color: inherit;
+    color: $orange;
+  }
+
+  &__learn-more:active {
+    background-color: $accent-color-hover;
+    color: $basic-white-text;
+  }
+
+  &__favorite {
+    flex-grow: 1;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid $orange;
+    border-radius: 4px;
+
+    background-color: inherit;
+    color: $orange;
+
+    @include font(400, 14px, 1.71);
+    letter-spacing: 0.02em;
+    font-family: 'Roboto';
+
+    @include tablet {
+      
+      font-size: 20px;
+      line-height: 1.2;
+    }
+
+    @include desktop {
+      font-size: 20px;
+      line-height: 1.2;
+    }
+  }
+
+  &__favorite * {
+    pointer-events: none;
+  }
+
+  &__favorite-svg {
+    fill: $orange;
+  }
+
+  &__favorite:hover &__favorite-svg,
+  &__favorite:focus &__favorite-svg {
+    fill: var(--btn-icon-heart);
+  }
+
+  &__favorite-svg:hover {
+    fill: var(--btn-icon-heart);
+  }
+}

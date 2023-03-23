@@ -1,0 +1,43 @@
+<section class="hero">
+  <div class="container">
+    <div class="hero__wrapper">
+      <h1 class="hero__title">A party without cocktails is not like a party</h1>
+      <picture class="hero__picture">
+        <source
+          srcset="./images/hero-1x-desk.png 1x, ./images/hero-2x-desk.png 2x"
+          media="(min-width: 1280px)"
+        />
+        <source
+          srcset="./images/hero-1x-tabl.png 1x, ./images/hero-2x-tabl.png 2x"
+          media="(min-width: 768px)"
+        />
+        <source
+          srcset="./images/hero-1x-mob.png 1x, ./images/hero-2x-mob.png 2x"
+          media="(max-width: 767px)"
+        />
+        <img
+          src="./images/hero-1x-desk.png"
+          alt="a front view fresh fruit cocktail with fresh fruit"
+          class="hero__image"
+        />
+      </picture>
+
+      <div class="hero__contain">
+        <p class="contain__text">Search your favorite cocktail by ABC</p>
+        <table class="contain__table"></table>
+        <!-- <select name="select" class="contain__select"></select> -->
+        <div class="contain__select">
+          <div class="select__wrapper--first js-sel-first">
+            <span class="select__title js-sel-title">A</span>
+            <svg class="select__open">
+              <use href="./images/icons.svg#icon-down"></use>
+            </svg>
+          </div>
+          <div class="select__wrapper--sec is-hidden-card js-sel-sec">
+            <ul class="select__list list"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

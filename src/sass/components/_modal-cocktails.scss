@@ -1,0 +1,243 @@
+.cocktails-backdrop {
+  position: fixed;
+  top: 0;
+  overflow-y: auto;
+  width: 100%;
+  height: 100%;
+  background-color: #4f4e4ea3;
+  
+}
+.modal-cocktails {
+  box-sizing: border-box;
+  width: 100%;
+  padding:40px 20px;
+  background-color: var(--white-modal-text);
+  
+  @include mobile {
+
+  }
+  @include tablet {
+    width: 768px;
+    padding:0 28px 28px 0;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%) scaleX(1);
+    transition-property: transform;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    
+  }
+  @include desktop {
+    width: 822px;
+    padding:0 28px 28px 0;
+    position: absolute;
+    top:50%;
+    left:50%;
+     transform: translate(-50%, -50%) scaleX(1);
+  transition-property: transform;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .cocktails-backdrop.is-hidden & {
+    transform: translate(-50%, -50%) scaleX(0);
+  }
+
+ 
+}
+.modal-cocktails__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover .button-icon {
+    fill: $accent-color-hover;
+  }
+  @include tablet{
+    top: 12px;
+    right: 12px;
+  }
+  @include desktop{
+    top: 12px;
+    right: 12px;
+  }
+}
+.button-icon {
+  fill: var(--black);
+}
+.cocktail__title {
+  font-family: 'Roboto';
+
+  @include font(900, 32px, calc(38 / 32));
+  color: var(--black);
+  margin-bottom: 20px;
+
+  @include tablet{
+    // margin-bottom: 28px;
+    // margin-left: 320px;
+    position:absolute;
+    left:40%;
+    top:40px;
+
+  }
+
+  @include desktop{
+    // margin-bottom: 28px;
+    // margin-left: 320px;
+    position:absolute;
+    left:313px;
+    top:40px;
+  }
+  
+}
+.container-wrap {
+  overflow-y: auto;
+  @include tablet{
+    display: flex;
+    flex-direction: column-reverse;
+  }
+ @include desktop{
+  display: flex;
+  flex-direction: column-reverse;
+ }
+}
+.cocktail-instraction{
+  @include tablet{
+  padding-left: 28px;
+  }
+  @include desktop{
+    padding-left: 28px;
+  }
+}
+.instraction__title {
+  @include font(600, 16px, calc(26 / 16));
+  color: var(--black);
+  margin-bottom: 20px;
+
+}
+.instraction__descr {
+  @include font(400, 16px, calc(28 / 16));
+  color: var(--grey-modal);
+  margin-bottom: 30px;
+}
+.contain-wrap{
+  margin:0 auto;
+  margin-bottom: 32px;
+  @include tablet {
+  display: flex;
+  flex-wrap: wrap;
+  margin:0;
+  gap:32px;
+  margin-bottom: 28px;
+  }
+ @include desktop {
+  display: flex;
+  flex-wrap: wrap;
+  margin:0;
+  gap:32px;
+  margin-bottom: 28px;
+  }
+}
+.cocktail__photo {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  display: block;
+  margin-bottom: 22px;
+
+  @include tablet{
+    width: 280px;
+    margin: 0;
+  }
+  @include desktop{
+    width:280px;
+    margin: 0;
+  }
+ 
+}
+.cocktail-ingredients {
+@include tablet {
+  padding-top: 105px;
+  
+}
+@include desktop {
+  padding-top: 105px;
+}
+}
+.ingridients__title {
+  @include font(600, 16px, calc(24 / 16));
+  margin-bottom: 8px;
+  color:var(--black);
+}
+.ingredients__descr {
+  @include font(300, 14px, calc(21 / 14));
+  color: var(--black);
+  margin-bottom: 8px;
+}
+.ingredients-list{
+  display:block;
+  @include tablet{
+    max-height:280px;
+    overflow-y: auto;
+    
+  }
+  @include desktop{
+    max-height:320px;
+    overflow-y: auto;
+  }
+}
+.ingredients__link {
+  @include font(400, 16px, calc(26 / 16));
+  text-decoration: none;
+  color: var(--grey-modal);
+  &:hover,
+  &:focus {
+    color: $accent-color-hover;
+  }
+}
+
+.modal-cocktails__add {
+  font-family: 'Roboto';
+  @include font(400, 20px, calc(24 / 20));
+  color: $basic-white-text;
+  background-color: $accent-color;
+  padding: 12px 24px;
+  min-width: 185px;
+  border-radius: 4px;
+  display:block;
+  border: 1px solid $accent-color-hover;
+  cursor: pointer;
+  @include tablet {
+    margin-left: auto;
+   }
+   @include desktop {
+     margin-left: auto;
+     
+   }
+  &:hover,
+  &:focus {
+    background-color: $basic-white;
+    color: $accent-color-hover;
+    border: 1px solid $accent-color-hover;
+  }
+  &:active {
+    background-color: $accent-color-hover;
+    color: $basic-white-text;
+    border: none;
+  }
+  
+}
+.is-hidden-btn{
+display:none;
+}
