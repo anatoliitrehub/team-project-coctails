@@ -65,7 +65,7 @@ Refs.selectDown.addEventListener('click',(ev)=>{
     Refs.selectDrop.classList.toggle('is-hidden-card')
     Refs.selectMain.classList.toggle('hero__orange');
 });
-Refs.selectListselect.addEventListener('click',(ev)=>{
+Refs.selectList.addEventListener('click',(ev)=>{
     Refs.selectTitle.textContent = ev.target.dataset['value'];
     Refs.selectDrop.classList.toggle('is-hidden-card');
     Refs.selectMain.classList.toggle('hero__orange');
